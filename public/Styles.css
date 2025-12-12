@@ -10,7 +10,7 @@ body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
     color: #e0e0e0;
-    background: linear-gradient(135deg, #6a6a6ae2 0%, #7c94ffbe 100%);
+    background: linear-gradient(135deg, #949494e2 0%, #d2fff5be 100%);
     overflow-x: hidden;
 }
 
@@ -134,7 +134,7 @@ marquee {
 
 .hero {
     /* background: linear-gradient(135deg,  #00ffd9 0%, #0800ff 100%); */
-    background-image: url('images/111.jpg');
+    background-image: url('images/111.png');
     background-size: cover;
     background-position: center;
     height: 80vh;
