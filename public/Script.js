@@ -76,7 +76,7 @@ window.addEventListener('scroll', function () {
 
     // --- Sticky Button Logic (Works for both Desktop and Mobile) ---
     const ctaButton = document.querySelector('#sticky-cta');
-    const stopElement = document.querySelector('.cta-buttondev'); // Target the "DEVELOPER INFO" button
+    const stopElement = document.querySelector('#button-stop-zone'); // Stop in the dedicated zone between Contact and Developer Info
     const heroSection = document.querySelector('.hero'); // Get the hero section
 
     if (ctaButton && stopElement && heroSection) {
@@ -95,8 +95,9 @@ window.addEventListener('scroll', function () {
         // Define padding based on device type
         const padding = isMobile ? 80 : 40;
 
-        // This is the absolute 'top' CSS value where the button should stop
-        const stopPosition = stopElementTop - ctaButton.offsetHeight - padding;
+        // This is the absolute 'top' CSS value where the button should stop (centered in stop zone)
+        const stopZoneHeight = stopElement.offsetHeight;
+        const stopPosition = stopElementTop + (stopZoneHeight / 2) - (ctaButton.offsetHeight / 2);
 
         // Scroll threshold: on mobile, activate after scrolling past hero section
         // On desktop, activate after scrolling 100px
