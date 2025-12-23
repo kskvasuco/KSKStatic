@@ -17,14 +17,61 @@ document.querySelector('form')?.addEventListener('submit', function (e) {
     this.reset();
 });
 
+// --- Initialize Marquee Position on Page Load ---
+function initializeMarqueePosition() {
+    const header = document.querySelector('.header');
+    const marqueeContainer = document.querySelector('.marquee-container');
+
+    if (header && marqueeContainer) {
+        const headerHeight = header.offsetHeight;
+        marqueeContainer.style.position = 'fixed';
+        marqueeContainer.style.top = headerHeight + 'px';
+    }
+}
+
+// Run on page load
+window.addEventListener('DOMContentLoaded', initializeMarqueePosition);
+// Also run after images/fonts load to recalculate if header height changes
+window.addEventListener('load', initializeMarqueePosition);
+
+// Handle window resize and mobile orientation changes
+let resizeTimer;
+window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    // Use debounce to avoid too many calculations
+    resizeTimer = setTimeout(initializeMarqueePosition, 100);
+});
+
 window.addEventListener('scroll', function () {
     const header = document.querySelector('.header');
 
-    // --- Header Background Change ---
+    // --- Header Background and Shadow Change ---
     if (window.scrollY > 100) {
         header.style.background = 'linear-gradient(135deg, #32548ef4 0%, #0086d4f8 100%)';
+        header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.5)';
     } else {
         header.style.background = 'linear-gradient(135deg, #32548ee2 0%, #0086d49f 100%)';
+        header.style.boxShadow = 'none';
+    }
+
+    // --- Marquee Scroll Behavior ---
+    const marqueeContainer = document.querySelector('.marquee-container');
+
+    if (marqueeContainer) {
+        const headerHeight = header.offsetHeight;
+        const scrollThreshold = 1; // Start detaching immediately
+
+        if (window.scrollY > scrollThreshold) {
+            // After scrolling, keep it absolutely positioned
+            if (marqueeContainer.style.position !== 'absolute') {
+                marqueeContainer.style.position = 'absolute';
+                marqueeContainer.style.top = (headerHeight + scrollThreshold) + 'px';
+            }
+        } else {
+            // At the very top, make it fixed to stick with header
+            marqueeContainer.style.position = 'fixed';
+            marqueeContainer.style.top = headerHeight + 'px';
+        }
     }
 
     // --- Sticky Button Logic (Works for both Desktop and Mobile) ---
