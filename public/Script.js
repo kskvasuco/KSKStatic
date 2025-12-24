@@ -1,3 +1,18 @@
+// ===== LOADING SCREEN =====
+window.addEventListener('load', function () {
+    const loadingScreen = document.getElementById('loading-screen');
+    if (loadingScreen) {
+        // Minimum 1.5s display for animation to complete
+        setTimeout(() => {
+            loadingScreen.classList.add('hidden');
+            // Remove from DOM after transition
+            setTimeout(() => {
+                loadingScreen.remove();
+            }, 500);
+        }, 1500);
+    }
+});
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();

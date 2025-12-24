@@ -6,6 +6,122 @@
     box-sizing: border-box;
 }
 
+/* ===== LOADING SCREEN ===== */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #32548e 0%, #0086d4 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#loading-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-content {
+    text-align: center;
+}
+
+.brick-loader {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 4px;
+    width: 80px;
+    height: 50px;
+    margin: 0 auto 20px;
+}
+
+.brick {
+    background: linear-gradient(145deg, #d35400, #e67e22);
+    border-radius: 3px;
+    box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.2), inset 0 2px 0 rgba(255, 255, 255, 0.1);
+    animation: brickBuild 1.5s ease-in-out infinite;
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.brick-1 {
+    animation-delay: 0s;
+}
+
+.brick-2 {
+    animation-delay: 0.15s;
+}
+
+.brick-3 {
+    animation-delay: 0.3s;
+}
+
+.brick-4 {
+    animation-delay: 0.45s;
+}
+
+.brick-5 {
+    animation-delay: 0.6s;
+}
+
+.brick-6 {
+    animation-delay: 0.75s;
+}
+
+@keyframes brickBuild {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.8);
+    }
+
+    20% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+    80% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(5px) scale(0.9);
+    }
+}
+
+.loader-text {
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.loader-brand {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
 body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
