@@ -381,7 +381,7 @@ body,
     bottom: 20px;
     padding: 15px 30px;
     font-size: 1.2rem;
-    transition: padding 0.3s ease, font-size 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 #sticky-cta.cta-button-fixed:hover {
@@ -396,6 +396,7 @@ body,
     z-index: 998;
     padding: 15px 30px;
     font-size: 1.2rem;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 #sticky-cta.cta-button-stopped:hover {
