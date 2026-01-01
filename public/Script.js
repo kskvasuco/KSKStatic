@@ -89,60 +89,78 @@ window.addEventListener('scroll', function () {
         }
     }
 
-    // --- Sticky Button Logic (Works for both Desktop and Mobile) ---
+    // --- Sticky Button Logic with Stop Zone ---
     const ctaButton = document.querySelector('#sticky-cta');
-    const stopElement = document.querySelector('#button-stop-zone'); // Stop in the dedicated zone between Contact and Developer Info
-    const heroSection = document.querySelector('.hero'); // Get the hero section
+    const stopElement = document.querySelector('#button-stop-zone');
+    const heroSection = document.querySelector('.hero');
 
     if (ctaButton && stopElement && heroSection) {
-        // Check if we're on mobile
-        const isMobile = window.innerWidth <= 768;
+        // Ensure body has positioning context for absolute positioning
+        document.body.style.position = 'relative';
 
-        // Get the bottom position of the hero section
+        // Get scroll position
+        const scrollY = window.scrollY;
+        const windowHeight = window.innerHeight;
+
+        // Get positions
         const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
-
-        // Get the top position of the "DEVELOPER INFO" button
         const stopElementTop = stopElement.offsetTop;
+        const buttonHeight = ctaButton.offsetHeight;
 
-        // Get the current bottom position of the screen
-        const scrollBottom = window.scrollY + window.innerHeight;
+        // Calculate scroll bottom (bottom of viewport)
+        const scrollBottom = scrollY + windowHeight;
 
-        // Define padding based on device type
-        const padding = isMobile ? 80 : 40;
+        // Scroll threshold: activate after scrolling 300px
+        const scrollThreshold = 300;
 
-        // This is the absolute 'top' CSS value where the button should stop (centered in stop zone)
-        const stopZoneHeight = stopElement.offsetHeight;
-        const stopPosition = stopElementTop + (stopZoneHeight / 2) - (ctaButton.offsetHeight / 2);
+        // Padding before stop zone (larger for better visibility)
+        const padding = 150;
 
-        // Scroll threshold: on mobile, activate after scrolling past hero section
-        // On desktop, activate after scrolling 100px
-        const scrollThreshold = isMobile ? heroBottom - window.innerHeight / 2 : 100;
-
-        // 1. Are we scrolled past the threshold?
-        if (window.scrollY > scrollThreshold) {
-
-            // 2. Are we still *above* the stop point?
-            if (scrollBottom < stopElementTop - padding) {
-                // YES: Be sticky (fixed at bottom)
-                ctaButton.classList.add('cta-button-fixed');
-                ctaButton.classList.remove('cta-button-stopped');
-                ctaButton.style.top = ''; // Clear inline style
-                ctaButton.style.position = 'fixed';
-            } else {
-                // NO: We've hit the stop point. Stop being fixed.
+        // Check if we've scrolled past the threshold
+        if (scrollY > scrollThreshold) {
+            // Check if we've reached the stop zone
+            if (scrollBottom >= (stopElementTop - padding)) {
+                // Stop being fixed - position absolutely above stop zone
                 ctaButton.classList.remove('cta-button-fixed');
                 ctaButton.classList.add('cta-button-stopped');
                 ctaButton.style.position = 'absolute';
-                // Set its absolute top position to the calculated stop point
-                ctaButton.style.top = stopPosition + 'px';
+                ctaButton.style.bottom = '';
+                ctaButton.style.left = '50%';
+                ctaButton.style.right = 'auto';
+                ctaButton.style.marginLeft = 'auto';
+                ctaButton.style.marginRight = 'auto';
+                ctaButton.style.transform = 'translateX(-50%)';
+                ctaButton.style.zIndex = '9999';
+                ctaButton.style.visibility = 'visible';
+                ctaButton.style.display = 'inline-block';
+                // Position it above the stop zone
+                const topPosition = stopElementTop - buttonHeight - padding;
+                ctaButton.style.top = topPosition + 'px';
+            } else {
+                // Make button sticky at bottom
+                ctaButton.classList.add('cta-button-fixed');
+                ctaButton.classList.remove('cta-button-stopped');
+                ctaButton.style.position = 'fixed';
+                ctaButton.style.bottom = '20px';
+                ctaButton.style.left = '50%';
+                ctaButton.style.right = 'auto';
+                ctaButton.style.marginLeft = 'auto';
+                ctaButton.style.marginRight = 'auto';
+                ctaButton.style.transform = 'translateX(-50%)';
+                ctaButton.style.zIndex = '9999';
+                ctaButton.style.visibility = 'visible';
+                ctaButton.style.display = 'inline-block';
+                ctaButton.style.top = '';
             }
-
         } else {
-            // We are at the top of the page. Button stays in hero section.
+            // At top of page - button stays in hero section
             ctaButton.classList.remove('cta-button-fixed');
             ctaButton.classList.remove('cta-button-stopped');
-            ctaButton.style.top = ''; // Clear inline style
-            ctaButton.style.position = ''; // Clear inline position
+            ctaButton.style.position = '';
+            ctaButton.style.bottom = '';
+            ctaButton.style.left = '';
+            ctaButton.style.transform = '';
+            ctaButton.style.top = '';
         }
     }
 });
@@ -167,4 +185,157 @@ document.querySelectorAll('.service-card, .product-card').forEach(card => {
     card.style.transform = 'translateY(30px)';
     card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(card);
+});
+
+// ===== NEW YEAR CELEBRATION LOGIC (Active Jan 1-7) =====
+
+/**
+ * Check if current date is within New Year celebration period
+ * @returns {boolean} True if within Jan 1-7, false otherwise
+ */
+function isNewYearPeriod() {
+    const now = new Date();
+    const month = now.getMonth(); // 0 = January
+    const date = now.getDate();
+
+    // Active from January 1 to January 7
+    return (month === 0 && date >= 1 && date <= 7);
+}
+
+/**
+ * Check if today is specifically New Year's Day (January 1st)
+ * @returns {boolean} True if Jan 1st, false otherwise
+ */
+function isNewYearDay() {
+    const now = new Date();
+    const month = now.getMonth(); // 0 = January
+    const date = now.getDate();
+    return (month === 0 && date === 1);
+}
+
+/**
+ * Position New Year banner (replaces marquee on Jan 1-7)
+ */
+function positionNewYearBanner() {
+    const header = document.querySelector('.header');
+    const marquee = document.querySelector('.marquee-container');
+    const banner = document.querySelector('.newyear-banner');
+
+    if (header && marquee && banner) {
+        const headerHeight = header.offsetHeight;
+
+        if (isNewYearPeriod()) {
+            // On January 1-7: Hide the regular marquee and position banner in its place
+            marquee.style.display = 'none';
+            banner.style.position = 'fixed';
+            banner.style.top = headerHeight + 'px';
+        } else {
+            // After January 7: Restore regular marquee
+            marquee.style.display = 'block';
+            banner.style.position = 'fixed';
+            const marqueeBottom = headerHeight + marquee.offsetHeight;
+            banner.style.top = marqueeBottom + 'px';
+        }
+    }
+}
+
+/**
+ * Initialize New Year celebration features
+ */
+function initNewYearCelebration() {
+    if (!isNewYearPeriod()) {
+        console.log('New Year celebration period has ended. Features hidden.');
+        return;
+    }
+
+    console.log('🎊 Happy New Year! Activating celebration features...');
+
+    const overlay = document.getElementById('newyear-overlay');
+    const confettiContainer = document.getElementById('confetti-container');
+
+    if (!overlay) return;
+
+    // Show New Year overlay
+    overlay.classList.remove('newyear-hidden');
+
+    // Position New Year banner below marquee
+    positionNewYearBanner();
+
+    // Initialize confetti
+    createConfetti(confettiContainer);
+
+    // Regenerate confetti periodically
+    setInterval(() => {
+        if (isNewYearPeriod()) {
+            createConfetti(confettiContainer);
+        }
+    }, 5000);
+
+    // Reposition banner on window resize
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            positionNewYearBanner();
+        }, 100);
+    });
+}
+
+/**
+ * Create confetti animation
+ * @param {HTMLElement} container - Container element for confetti
+ */
+function createConfetti(container) {
+    if (!container) return;
+
+    const colors = ['#ffd700', '#c0c0c0', '#ffed4e', '#ff6b6b', '#4ecdc4', '#95e1d3'];
+    const confettiCount = 50;
+
+    for (let i = 0; i < confettiCount; i++) {
+        const confetti = document.createElement('div');
+        confetti.classList.add('confetti-piece');
+
+        // Random properties
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        const left = Math.random() * 100;
+        const animationDuration = (Math.random() * 3 + 2); // 2-5 seconds
+        const delay = Math.random() * 2;
+        const size = Math.random() * 6 + 4; // 4-10px
+
+        confetti.style.left = `${left}%`;
+        confetti.style.background = color;
+        confetti.style.width = `${size}px`;
+        confetti.style.height = `${size}px`;
+        confetti.style.animationDuration = `${animationDuration}s`;
+        confetti.style.animationDelay = `${delay}s`;
+
+        container.appendChild(confetti);
+
+        // Remove confetti after animation
+        setTimeout(() => {
+            confetti.remove();
+        }, (animationDuration + delay) * 1000);
+    }
+}
+
+/**
+ * Add fadeOut animation to CSS if not exists
+ */
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+        }
+        to {
+            opacity: 0;
+        }
+    }
+`;
+document.head.appendChild(style);
+
+// Initialize New Year celebration when page loads
+window.addEventListener('load', () => {
+    // Small delay to let the loading screen finish
+    setTimeout(initNewYearCelebration, 1600);
 });
