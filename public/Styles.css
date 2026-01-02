@@ -446,12 +446,12 @@ body,
 
 @media (max-width: 768px) {
     .hero {
-        text-align: center;
+        text-align: left;
         background-attachment: scroll;
     }
 
     .hero-content {
-        align-items: center;
+        align-items: flex-start;
         display: flex;
         flex-direction: column;
     }
@@ -618,22 +618,22 @@ body,
 /* Center the sticky-cta button in hero section on desktop */
 @media (min-width: 769px) {
     .hero {
-        justify-content: center;
-        text-align: center;
+        justify-content: flex-start;
+        text-align: left;
     }
 
     .hero-content {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        text-align: center;
+        align-items: flex-start;
+        text-align: left;
     }
 
     .hero-content #sticky-cta:not(.cta-button-fixed):not(.cta-button-stopped) {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
+        display: inline-block;
+        margin-left: 0;
+        margin-right: 0;
+        text-align: left;
     }
 }
 
