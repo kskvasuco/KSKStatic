@@ -47,6 +47,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 140px;
 }
 
 body {
@@ -268,6 +269,16 @@ img {
     width: 100%;
 }
 
+.mobile-nav-header {
+    display: none;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
 .mobile-toggle {
     display: none;
     font-size: 1.5rem;
@@ -317,19 +328,81 @@ img {
     .nav-links {
         position: fixed;
         top: 0;
-        right: -100%;
+        left: -100%;
+        /* Start from Left */
+        right: auto;
         width: 80%;
         height: 100vh;
-        background: white;
+        background: linear-gradient(135deg, #e0f2fe 0%, #ffffff 100%);
         flex-direction: column;
-        justify-content: center;
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-        transition: right 0.4s ease;
+        justify-content: flex-start;
+        /* Items start at top */
+        padding-top: 60px;
+        /* Space for top area */
+        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+        /* Shadow on right */
+        transition: left 0.4s ease;
         z-index: 1001;
     }
 
     .nav-links.active {
-        right: 0;
+        left: 0;
+        right: auto;
+    }
+
+    /* LinkedIn-Style Professional Header for Mobile Menu */
+    .nav-links::before {
+        content: 'KSK VASU & Co.';
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        padding: 30px 20px 25px;
+        background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+        border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        background-image:
+            url('images/Group 2.png'),
+            linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+        background-size: 80px auto, cover;
+        background-position: center 20px, center;
+        background-repeat: no-repeat, no-repeat;
+        padding-top: 110px;
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: white;
+        letter-spacing: 0.5px;
+        text-align: center;
+        width: 100%;
+        box-sizing: border-box;
+        order: -1;
+    }
+
+    .nav-link {
+        color: #334155;
+        font-weight: 500;
+        text-align: left;
+        width: 100%;
+        padding: 15px 25px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    /* Target the Call Now button specifically in mobile menu */
+    .nav-links .btn-primary {
+        margin-top: auto;
+        /* Push to bottom */
+        margin-bottom: 40px;
+        width: 80% !important;
+        /* Override inline width */
+        height: 45px !important;
+        border-radius: 8px !important;
+        align-self: center;
+        background: #f59e0b;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 10px rgba(245, 158, 11, 0.3);
     }
 
     .mobile-toggle {
@@ -650,7 +723,7 @@ img {
    PRODUCTS
    ========================================= */
 .products {
-    padding: 10px 0 50px 0;
+    padding: 50px 0 50px 0;
     background: var(--bgcard);
 }
 
@@ -712,7 +785,7 @@ img {
    ABOUT SECTION
    ========================================= */
 .about {
-    padding: 10px 0 50px 0;
+    padding: 50px 0 50px 0;
     background: var(--bgcard);
 }
 
@@ -1231,7 +1304,7 @@ footer {
     left: 0;
     width: 100%;
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-    z-index: 999;
+    z-index: 500;
     box-shadow: var(--shadow-md);
     overflow: hidden;
     padding: 10px 0;
@@ -1328,7 +1401,7 @@ footer {
     width: 100%;
     background: linear-gradient(135deg, var(--gold) 0%, #ffed4e 50%, var(--gold) 100%);
     padding: 8px 0;
-    z-index: 999;
+    z-index: 500;
     box-shadow: 0 6px 24px rgba(251, 191, 36, 0.4);
     overflow: hidden;
 }
@@ -1866,20 +1939,18 @@ footer {
         color: white !important;
     }
 
-    .logo-container {
-        gap: 8px !important;
-    }
+    /* Redundant Mobile Nav Styles Removed - Consolidated in main media query */
 
     /* Mobile Navigation (Amazon Style Drawer) */
     .nav-links {
         position: fixed;
         top: 0;
         left: -100%;
-        width: 85%;
+        width: 70%;
         /* Drawer width */
         max-width: 320px;
         height: 100vh;
-        background: white;
+        background: rgb(187, 220, 253);
         flex-direction: column;
         padding: 0;
         gap: 0 !important;
@@ -1896,22 +1967,64 @@ footer {
     }
 
     /* Drawer Header */
-    .nav-links::before {
-        content: "Hello, KSK VASU & Co 👋";
+    /* Mobile Nav Header */
+    .mobile-nav-headerlogo {
         display: flex;
+        justify-content: center;
         align-items: center;
-        padding: 30px 20px;
-        background: linear-gradient(135deg, var(--ksk-blue), var(--ksk-blue-dark));
-        color: white;
-        font-size: 1.2rem;
-        font-weight: 700;
         width: 100%;
-        box-sizing: border-box;
+        margin-bottom: 10px;
+        padding-top: 5px;
+    }
+
+    .mobile-nav-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 15px 10px;
+        background: linear-gradient(135deg, var(--ksk-blue), var(--ksk-blue-dark));
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .mobile-logo-img {
+        height: 90px;
+        margin-right: 0;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    }
+
+    .mobile-logo-text h3 {
+        font-family: var(--font-heading);
+        font-weight: 800;
+        font-size: 1.2rem;
+        color: white;
+        line-height: 1;
+        letter-spacing: -0.5px;
+    }
+
+    .mobile-logo-text span {
+        font-size: 0.7rem;
+        color: var(--gold);
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+
+    /* Fixed styling for Call Button in Mobile Menu */
+    .nav-links .mobile-call-btn {
+        width: 45% !important;
+        margin: 15px auto !important;
+        display: flex;
+        justify-content: center;
+        border-radius: 12px;
+        padding: 12px 10px;
+        background: linear-gradient(135deg, var(--gold), #f59e0b);
+        box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
     }
 
     /* Drawer Items */
     .nav-link {
-        font-size: 1rem !important;
+        font-size: 1.1rem !important;
         padding: 15px 20px;
         color: #333 !important;
         border-bottom: 1px solid #eee;
@@ -1992,4 +2105,38 @@ footer {
 .mobile-sticky-btn.visible {
     bottom: 20px;
     display: flex;
+}
+
+/* Hide sticky button when menu is open */
+body:has(.nav-links.active) .mobile-sticky-btn {
+    display: none !important;
+}
+
+/* =========================================
+   RESPONSIVE SIZING FOR LARGER MOBILE DEVICES
+   ========================================= */
+/* Optimized for 414x896 (iPhone 11/12/13/14, etc.) */
+@media (min-width: 375px) and (max-width: 428px) and (min-height: 800px) {
+
+    /* Increase header logo and text size */
+    .logo-img {
+        height: 110px;
+    }
+
+    .logo-text h1 {
+        font-size: 1.65rem;
+    }
+
+    .logo-text span {
+        font-size: 16px;
+    }
+
+    /* Increase marquee text size */
+    .marquee-text span {
+        font-size: 17px;
+    }
+
+    .newyear-banner-text {
+        font-size: 0.95rem;
+    }
 }

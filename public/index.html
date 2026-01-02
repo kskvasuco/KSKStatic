@@ -26,13 +26,13 @@
     <div id="newyear-overlay" class="newyear-hidden">
         <!-- Confetti Container -->
         <div id="confetti-container"></div>
+    </div>
 
-        <!-- New Year Header Banner -->
-        <div id="newyear-banner" class="newyear-banner">
-            <span class="newyear-banner-text">🎉 Happy New Year 2026! 🎉 புத்தாண்டு வாழ்த்துக்கள்! 🎉 Wishing You & Your
-                Family Prosperity, Success & Happiness! 🏗️ Quality Construction Materials & Services 🚚 24x7 Available
-                🎊 May Your Dreams Come True This Year! 🎉 KSK VASU & Co - Building Your Future! 🎉</span>
-        </div>
+    <!-- New Year Header Banner (Moved out of overlay for proper z-index) -->
+    <div id="newyear-banner" class="newyear-banner">
+        <span class="newyear-banner-text">🎉 Happy New Year 2026! 🎉 புத்தாண்டு வாழ்த்துக்கள்! 🎉 Wishing You & Your
+            Family Prosperity, Success & Happiness! 🏗️ Quality Construction Materials & Services 🚚 24x7 Available
+            🎊 May Your Dreams Come True This Year! 🎉 KSK VASU & Co - Building Your Future! 🎉</span>
     </div>
 
     <!-- Loading Screen with Brick Animation -->
@@ -155,6 +155,12 @@
                     <h3>Earth Moving</h3>
                     <p>Professional earth moving services with modern JCB equipment for excavation, land clearing, and
                         site preparation projects.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🕐</div>
+                    <h3>24/7 Availability</h3>
+                    <p>We are available round the clock, 24/7, to serve your construction needs and handle any urgent
+                        requirements.</p>
                 </div>
 
             </div>
@@ -281,7 +287,7 @@
             </div>
 
             <div class="contact-grid">
-                <div class="contact-card">
+                <a href="https://maps.app.goo.gl/bKYi6iFRUcLBSPBZ9" target="_blank" class="contact-card">
                     <div class="contact-icon-wrapper location">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 90 90">
                             <path
@@ -304,11 +310,10 @@
                     <h3>Visit Our Office</h3>
                     <p class="contact-desc">Visit our office for all your construction material needs and consultations.
                     </p>
-                    <a href="https://maps.app.goo.gl/bKYi6iFRUcLBSPBZ9" target="_blank" class="contact-link">Get
-                        Directions ↗</a>
-                </div>
+                    <span class="contact-link">Get Directions ↗</span>
+                </a>
 
-                <div class="contact-card">
+                <a href="tel:+919443350464" class="contact-card">
                     <div class="contact-icon-wrapper phone">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
                             stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -319,10 +324,10 @@
                     <h3>Call Us</h3>
                     <p class="contact-highlight">+919443350464</p>
                     <p class="contact-desc">Call us for immediate assistance and quotes on materials and services.</p>
-                    <a href="tel:+919443350464" class="contact-link">Call Now ↗</a>
-                </div>
+                    <span class="contact-link">Call Now ↗</span>
+                </a>
 
-                <div class="contact-card">
+                <a href="mailto:kskvasu.co@gmail.com" class="contact-card">
                     <div class="contact-icon-wrapper email">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="28" height="28">
                             <path fill="#34A853" d="M41,12v24c0,2.2-1.8,4-4,4h-4V19l8-6V12z" />
@@ -336,8 +341,8 @@
                     <h3>Email Us</h3>
                     <p class="contact-highlight">kskvasu.co@gmail.com</p>
                     <p class="contact-desc">Send us your requirements and we'll get back to you promptly.</p>
-                    <a href="mailto:kskvasu.co@gmail.com" class="contact-link">Send Email ↗</a>
-                </div>
+                    <span class="contact-link">Send Email ↗</span>
+                </a>
 
                 <div class="contact-card">
                     <div class="contact-icon-wrapper hours">
@@ -429,7 +434,7 @@
             <p class="copyright">© 2026 KSK VASU & Co. All rights reserved.</p>
         </div>
     </footer>
-
+    <br><br><br><br>
     <!-- SCRIPTS -->
     <script src="landing.js"></script>
 </body>
