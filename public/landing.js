@@ -100,62 +100,54 @@ function initStickyHeader() {
 }
 
 // =========================================
-// 3. SMART STICKY CTA (Button in Header)
+// 3. SMART STICKY CTA (Triggers when hero button reaches marquee)
 // =========================================
 function initStickyCTA() {
     const heroCTA = document.getElementById('hero-cta');
-    const nav = document.querySelector('.nav');
+    const marquee = document.querySelector('.marquee-container');
     const floatingCTA = document.getElementById('floating-cta-container');
 
-    if (!heroCTA || !nav) return;
+    if (!heroCTA) return;
 
-    // Hide the floating CTA - we'll use header button instead
+    // Hide the old floating CTA if exists
     if (floatingCTA) {
         floatingCTA.style.display = 'none';
     }
 
-    // Create the header button (Desktop only - inside nav)
-    const headerBtn = document.createElement('a');
-    headerBtn.href = 'https://order.kskvasu.co.in';
-    headerBtn.target = '_blank';
-    headerBtn.className = 'btn header-cta-btn desktop-only';
-    headerBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>Book Your Order';
-    headerBtn.style.display = 'none';
-    nav.appendChild(headerBtn);
-
-    // Create the sticky mobile button (Mobile only - inside body)
-    const mobileBtn = document.createElement('a');
-    mobileBtn.href = 'https://order.kskvasu.co.in';
-    mobileBtn.target = '_blank';
-    mobileBtn.className = 'btn mobile-sticky-btn'; // New class
-    mobileBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>Book Your Order';
-    mobileBtn.style.display = 'none';
-    document.body.appendChild(mobileBtn);
+    // Create the universal sticky bottom button
+    const stickyBtn = document.createElement('a');
+    stickyBtn.href = 'https://order.kskvasu.co.in';
+    stickyBtn.target = '_blank';
+    stickyBtn.className = 'btn universal-sticky-btn';
+    stickyBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>Book Your Order';
+    document.body.appendChild(stickyBtn);
 
     let ticking = false;
 
     function updateButtonVisibility() {
         const heroRect = heroCTA.getBoundingClientRect();
-        const heroScrolledPast = heroRect.bottom < 0;
-        const isMobile = window.innerWidth <= 768;
+        const marqueeRect = marquee ? marquee.getBoundingClientRect() : null;
 
-        if (heroScrolledPast) {
-            if (isMobile) {
-                // Mobile: Show floating bottom button, hide header button
-                headerBtn.style.display = 'none';
-                mobileBtn.style.display = 'flex';
-                mobileBtn.classList.add('visible');
-            } else {
-                // Desktop: Show header button, hide mobile button
-                headerBtn.style.display = 'inline-flex';
-                mobileBtn.style.display = 'none';
-                mobileBtn.classList.remove('visible');
-            }
+        // Trigger when hero button's bottom reaches the marquee's top (or passes it)
+        // If no marquee, fallback to checking if hero button is scrolled past viewport
+        let shouldShowSticky = false;
+
+        if (marqueeRect) {
+            // Hero button reaches the marquee when button's top goes above marquee's bottom
+            shouldShowSticky = heroRect.top <= marqueeRect.bottom;
         } else {
-            // Hero visible: Hide both
-            headerBtn.style.display = 'none';
-            mobileBtn.style.display = 'none';
-            mobileBtn.classList.remove('visible');
+            // Fallback: show when hero button is scrolled out of view
+            shouldShowSticky = heroRect.bottom < 0;
+        }
+
+        if (shouldShowSticky) {
+            heroCTA.style.opacity = '0';
+            heroCTA.style.pointerEvents = 'none';
+            stickyBtn.classList.add('visible');
+        } else {
+            heroCTA.style.opacity = '1';
+            heroCTA.style.pointerEvents = 'auto';
+            stickyBtn.classList.remove('visible');
         }
 
         ticking = false;
@@ -169,7 +161,6 @@ function initStickyCTA() {
     }
 
     window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', updateButtonVisibility); // Check on resize
 
     // Initial check
     updateButtonVisibility();
@@ -203,39 +194,125 @@ function initScrollAnimations() {
 }
 
 // =========================================
-// 5. MARQUEE LOGIC
+// 5. MARQUEE LOGIC (Enhanced JavaScript Animation)
 // =========================================
 function initMarquee() {
     const marqueeContainer = document.querySelector('.marquee-container');
+    const marqueeContent = document.querySelector('.marquee-content');
+    const marqueeText = document.querySelector('.marquee-text');
     const header = document.querySelector('.header');
 
-    if (!marqueeContainer || !header) return;
+    if (!marqueeContainer || !marqueeText || !header) return;
 
-    // Function to calculate and stick position
+    // Remove CSS animation - we'll handle it with JavaScript
+    marqueeText.style.animation = 'none';
+
+    // Configuration
+    const config = {
+        speed: 1.5, // Pixels per frame (adjustable for desired speed)
+        pauseOnHover: true,
+        smoothness: true // Use requestAnimationFrame for smooth scrolling
+    };
+
+    let position = 0;
+    let isPaused = false;
+    let animationId = null;
+
+    // Get the width of a single text span for seamless looping
+    function getContentWidth() {
+        const spans = marqueeText.querySelectorAll('span');
+        if (spans.length > 0) {
+            return spans[0].offsetWidth;
+        }
+        return marqueeText.scrollWidth / 2;
+    }
+
+    // Track last known header height for smooth transitions
+    let lastHeaderHeight = header.offsetHeight;
+
+    // Update marquee position below header
     function updateMarqueePosition() {
         const headerHeight = header.offsetHeight;
-
-        // Simpler logic: stick to top initially, then scroll away? 
-        // Or sticky fixed? Let's make it sticky fixed below header for visibility
-        // matching the "Landing Page" vibe where important info is visible.
-        // If user wants it to scroll away, we can change this.
-        // For now, let's keep it fixed below header which is usually better for announcements.
-
-        // However, Script.js had scroll-away logic. Let's try to respect that if intended.
-        // But marquee text suggests "Happy New Year" etc. Important.
-
-        // Let's implement dynamic top based on header height
-        if (window.getComputedStyle(marqueeContainer).position === 'fixed') {
+        if (headerHeight !== lastHeaderHeight) {
+            lastHeaderHeight = headerHeight;
             marqueeContainer.style.top = headerHeight + 'px';
         }
     }
 
-    // Update on load and resize
-    window.addEventListener('load', updateMarqueePosition);
-    window.addEventListener('resize', updateMarqueePosition);
+    // Smooth animation loop using requestAnimationFrame
+    function animate() {
+        // Update header position every frame for smooth tracking during fast scroll
+        updateMarqueePosition();
 
-    // Update when header changes size (scroll)
-    window.addEventListener('scroll', updateMarqueePosition);
+        if (!isPaused) {
+            position -= config.speed;
+
+            const contentWidth = getContentWidth();
+
+            // Reset position when first span is completely scrolled out
+            if (Math.abs(position) >= contentWidth) {
+                position = 0;
+            }
+
+            marqueeText.style.transform = `translateX(${position}px)`;
+        }
+
+        animationId = requestAnimationFrame(animate);
+    }
+
+    // Start animation
+    function startAnimation() {
+        if (!animationId) {
+            animationId = requestAnimationFrame(animate);
+        }
+    }
+
+    // Stop animation
+    function stopAnimation() {
+        if (animationId) {
+            cancelAnimationFrame(animationId);
+            animationId = null;
+        }
+    }
+
+    // Pause on hover
+    if (config.pauseOnHover) {
+        marqueeContainer.addEventListener('mouseenter', () => {
+            isPaused = true;
+        });
+
+        marqueeContainer.addEventListener('mouseleave', () => {
+            isPaused = false;
+        });
+
+        // Touch support for mobile
+        marqueeContainer.addEventListener('touchstart', () => {
+            isPaused = true;
+        }, { passive: true });
+
+        marqueeContainer.addEventListener('touchend', () => {
+            isPaused = false;
+        }, { passive: true });
+    }
+
+    // Visibility-based performance optimization
+    function handleVisibilityChange() {
+        if (document.hidden) {
+            stopAnimation();
+        } else {
+            startAnimation();
+        }
+    }
+
+    // Event listeners
+    window.addEventListener('resize', updateMarqueePosition);
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    // Initialize position immediately
+    marqueeContainer.style.top = header.offsetHeight + 'px';
+
+    // Initialize animation
+    startAnimation();
 }
 
 // =========================================
