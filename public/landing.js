@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initStickyCTA();
     initScrollAnimations();
     initMarquee();
-    initNewYearCelebration(); // Only active Jan 1-7
+    // initNewYearCelebration(); // Disabled - New Year celebration removed
 });
 
 // =========================================
@@ -71,6 +71,8 @@ function initMobileMenu() {
         backdrop.classList.toggle('active');
         // Prevent background scrolling when menu is open
         body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        // Toggle hamburger to X icon
+        toggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
     }
 
     toggle.addEventListener('click', toggleMenu);

@@ -163,7 +163,7 @@ img {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: rgb(43, 68, 193);
+    background: rgba(43, 68, 193, 0.608);
     /* Solid background to fully cover marquee */
     backdrop-filter: blur(10px);
     box-shadow: var(--shadow-sm);
@@ -441,6 +441,51 @@ img {
         opacity: 1;
         pointer-events: all;
     }
+}
+
+
+/* =========================================
+   MARQUEE SECTION
+   ========================================= */
+.marquee-container {
+    position: fixed;
+    top: 95px;
+    left: 0;
+    width: 100%;
+    background: #ffd700;
+    z-index: 999;
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    padding: 10px 0;
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.marquee-content {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+}
+
+.marquee-text {
+    display: flex;
+    white-space: nowrap;
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.marquee-text span {
+    color: rgba(0, 0, 0, 0.95);
+    font-weight: 600;
+    font-size: 16px;
+    padding-right: 50px;
+    display: inline-block;
+}
+
+.marquee-container:hover .marquee-text {
+    animation-play-state: paused;
 }
 
 /* =========================================
@@ -1318,12 +1363,12 @@ footer {
     /* Default value - JavaScript dynamically updates this based on actual header height */
     left: 0;
     width: 100%;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    background: rgb(101, 201, 1);
     z-index: 999;
     /* Just below header (1000) to ensure it never overlaps */
     box-shadow: var(--shadow-md);
     overflow: hidden;
-    padding: 10px 0;
+    padding: 5px 0;
     /* Ensure marquee clips properly and never shows above header */
     clip-path: inset(0 0 0 0);
 }
