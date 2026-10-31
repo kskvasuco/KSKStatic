@@ -1,0 +1,99 @@
+{
+  "version": 1,
+  "project": {
+    "name": "KSK VASU & Co - Main",
+    "productType": "Construction Materials & Earth Moving Platform",
+    "stack": [
+      "HTML5",
+      "CSS3 (21st.dev Clean Slate Light Tokens)",
+      "JavaScript (Vanilla ES6+)",
+      "Firebase Hosting",
+      "Play Store Mobile Integration"
+    ]
+  },
+  "sources": {
+    "tokens": [
+      "public/landing.css"
+    ],
+    "components": [
+      "public/index.html",
+      "public/developer.html"
+    ],
+    "assets": [
+      "public/images"
+    ],
+    "instructions": []
+  },
+  "design": {
+    "colorMode": "light-only",
+    "colors": {
+      "primary": "#0284c7",
+      "primaryHover": "#0369a1",
+      "secondary": "#d97706",
+      "success": "#10b981",
+      "background": "#f8fafc",
+      "surface": "#ffffff",
+      "textPrimary": "#0f172a",
+      "textSecondary": "#334155",
+      "border": "#e2e8f0"
+    },
+    "typography": {
+      "fontFamily": "Poppins, Inter, sans-serif"
+    },
+    "density": "comfortable"
+  },
+  "components": {
+    "installed": [
+      "header-navbar",
+      "mobile-drawer",
+      "announcement-marquee",
+      "bento-hero",
+      "metrics-counter-bar",
+      "services-bento-grid",
+      "product-catalog-filters",
+      "material-calculator",
+      "why-us-bento-grid",
+      "steps-timeline",
+      "mobile-app-showcase",
+      "testimonials-grid",
+      "faq-accordion",
+      "contact-yard-hub",
+      "quick-inquiry-card",
+      "developer-showcase-card",
+      "universal-sticky-btn",
+      "modern-light-footer"
+    ],
+    "preferredPrimitives": [],
+    "patterns": [
+      "bento-grid",
+      "frosted-glass-light",
+      "pill-badges"
+    ]
+  },
+  "constraints": {
+    "must": [
+      "Light mode only (no dark mode theme or dark backgrounds)",
+      "High contrast WCAG compliance",
+      "Mobile-first responsive drawer and sticky actions"
+    ],
+    "avoid": [
+      "Dark mode theme inversion",
+      "Heavy external framework dependencies",
+      "Unoptimized images"
+    ]
+  },
+  "decisions": [
+    {
+      "id": "light-mode-redesign",
+      "choice": "Clean Slate & Meridian Blue light mode palette with terracotta amber secondary accents",
+      "rationale": "High daylight legibility for civil engineers, site managers, and contractors ordering on mobile devices at construction sites."
+    },
+    {
+      "id": "material-calculator-template",
+      "choice": "Interactive real-time wall calculator for bricks, cement, and sand",
+      "rationale": "Empowers builders to immediately estimate procurement quantities and convert to instant online orders."
+    }
+  ],
+  "evidence": [],
+  "generatedAt": "2026-10-31T06:33:00.000Z"
+}

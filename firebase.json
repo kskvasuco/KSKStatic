@@ -1,10 +1,12 @@
 {
   "hosting": {
+    "site": "ksk-vasu-and-co",
     "public": "public",
     "ignore": [
       "firebase.json",
       "**/.*",
-      "**/node_modules/**"
+      "**/node_modules/**",
+      "**/images_backup_orig/**"
     ],
     "headers": [
       {

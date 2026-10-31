@@ -6,328 +6,974 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Primary Meta Tags -->
-    <title>KSK VASU & Co - Construction Materials & Earth Moving</title>
-    <meta name="title" content="KSK VASU & Co - Construction Materials & Services">
+    <title>KSK VASU & Co. | Construction Materials & Earth Moving Services</title>
+    <meta name="title" content="KSK VASU & Co. - Construction Materials & Earth Moving Services">
     <meta name="description"
-        content="Professional earth moving services with modern JCB equipment and quality construction materials supplier.">
-    <meta name="theme-color" content="#0f3460">
+        content="Professional earth moving services with modern JCB equipment and quality construction materials supplier. Chamber bricks, Dalmia cement, M-sand, P-sand in Tamil Nadu.">
+    <meta name="theme-color" content="#0284c7">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/head.png">
+    <link rel="icon" type="image/webp" sizes="32x32" href="images/head.webp">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/head.png">
+
+    <!-- Typography: Pure Modern Sans-Serif System Stack -->
 
     <!-- CSS -->
-    <link rel="stylesheet" href="landing.css?v=2.3">
-
-    <!-- Animation Lib (Optional, using CSS for now) -->
+    <link rel="stylesheet" href="landing.css?v=7.6">
 </head>
 
 <body>
-    <!-- Loading Screen with Brick Animation -->
-    <div id="loading-screen">
-        <div class="loader-content">
-            <div class="brick-loader">
-                <div class="brick brick-1"></div>
-                <div class="brick brick-2"></div>
-                <div class="brick brick-3"></div>
-                <div class="brick brick-4"></div>
-                <div class="brick brick-5"></div>
-                <div class="brick brick-6"></div>
-            </div>
-            <p class="loader-text">Building Your Experience...</p>
-            <p class="loader-brand">KSK VASU & Co</p>
-        </div>
-    </div>
-
-    <!-- NAVIGATION -->
-    <header class="header">
+    <!-- TEMPLATE 1: MODERN STICKY LIGHT NAVBAR WITH ATTACHED MARQUEE -->
+    <header class="header" id="site-header">
         <div class="container nav">
-            <div class="logo-container">
-                <img src="images/Group 2.png" alt="KSK VASU Logo" class="logo-img">
-                <div class="logo-text">
-                    <h1>KSK VASU & Co. <span><br>online</span></h1>
-                </div>
-            </div>
+            <!-- Mobile Hamburger Toggle -->
+            <button type="button" class="mobile-toggle" aria-label="Open mobile navigation menu" aria-expanded="false" aria-controls="mobile-nav-drawer">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
 
-            <div class="nav-links">
-                <a href="#home" class="nav-link">Home</a>
+            <!-- Brand Logo -->
+            <a href="#home" class="logo-container" aria-label="KSK VASU & Co. Home">
+                <img src="images/Group 2.webp" onerror="this.onerror=null;this.src='images/Group 2.png'" alt="KSK VASU Logo" class="logo-img" width="44" height="44" fetchpriority="high">
+                <div class="logo-text">
+                    <h1>KSK VASU & Co.</h1>
+                    <span>BUILDING MATERIALS</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="nav-links" aria-label="Primary Navigation">
+                <a href="#home" class="nav-link active">Home</a>
                 <a href="#services" class="nav-link">Services</a>
                 <a href="#products" class="nav-link">Products</a>
+                <a href="#app" class="nav-link">App</a>
                 <a href="#about" class="nav-link">About</a>
                 <a href="#contact" class="nav-link">Contact</a>
-                <a href="tel:+919443350464" style="width: 29%; height: 35px; border-radius: 10px;"
-                    class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" style="margin-right: 8px;">
-                        <path
-                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-                    </svg>Call Now</a>
-            </div>
+            </nav>
 
-            <div class="mobile-toggle">
-                ☰
+            <div class="nav-actions">
+                <a href="tel:+919443350464" class="btn-call" aria-label="Call KSK VASU Now">
+                    <span class="call-pulse"></span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg>
+                    <span>+91 94433 50464</span>
+                </a>
+                <a href="https://order.kskvasu.co.in" target="_blank" rel="noopener" class="btn btn-primary" style="padding: 8px 16px; font-size: 0.85rem;">
+                    <span>Order Portal</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- ATTACHED DYNAMIC TAMIL ANNOUNCEMENT MARQUEE -->
+        <div class="marquee-container" aria-label="Announcements">
+            <div class="marquee-content">
+                <div class="marquee-text">
+                    <span>⭐ . . வாழ்க வளமுடன் . . ⭐ . . Construction Planning . . ⭐ . . Construction Materials . . ⭐ . . Hardware Solutions . . ⭐ . . வாழ்க வளமுடன் . . ⭐</span>
+                    <span>⭐ . . வாழ்க வளமுடன் . . ⭐ . . Construction Planning . . ⭐ . . Construction Materials . . ⭐ . . Hardware Solutions . . ⭐ . . வாழ்க வளமுடன் . . ⭐</span>
+                    <span>⭐ . . வாழ்க வளமுடன் . . ⭐ . . Construction Planning . . ⭐ . . Construction Materials . . ⭐ . . Hardware Solutions . . ⭐ . . வாழ்க வளமுடன் . . ⭐</span>
+                    <span>⭐ . . வாழ்க வளமுடன் . . ⭐ . . Construction Planning . . ⭐ . . Construction Materials . . ⭐ . . Hardware Solutions . . ⭐ . . வாழ்க வளமுடன் . . ⭐</span>
+                </div>
             </div>
         </div>
     </header>
 
-    <div class="marquee-container">
-        <div class="marquee-content">
-            <div class="marquee-text">
-                <span>⭐ . . வாழ்க வளமுடன் . . ⭐ . . Construction Planning . . ⭐ . . Construction Materials . . ⭐ . .
-                    Hardware Solutions . . ⭐ . . வாழ்க வளமுடன் . . ⭐</span>
-                <span>⭐ . . வாழ்க வளமுடன் . . ⭐ . . Construction Planning . . ⭐ . . Construction Materials . . ⭐ . .
-                    Hardware Solutions . . ⭐ . . வாழ்க வளமுடன் . . ⭐</span>
-                <span>⭐ . . வாழ்க வளமுடன் . . ⭐ . . Construction Planning . . ⭐ . . Construction Materials . . ⭐ . .
-                    Hardware Solutions . . ⭐ . . வாழ்க வளமுடன் . . ⭐</span>
-                <span>⭐ . . வாழ்க வளமுடன் . . ⭐ . . Construction Planning . . ⭐ . . Construction Materials . . ⭐ . .
-                    Hardware Solutions . . ⭐ . . வாழ்க வளமுடன் . . ⭐</span>
+    <!-- TEMPLATE 2: MOBILE NAVIGATION DRAWER & BACKDROP -->
+    <div class="mobile-nav-backdrop" id="mobile-nav-backdrop"></div>
+    <div class="mobile-nav-drawer" id="mobile-nav-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+        <div class="drawer-header">
+            <div class="drawer-brand">
+                <img src="images/Group 2.webp" onerror="this.onerror=null;this.src='images/Group 2.png'" alt="KSK VASU Logo" class="drawer-logo" width="36" height="36">
+                <div>
+                    <span class="drawer-brand-name">KSK VASU & Co.</span>
+                    <span class="drawer-brand-sub">Materials & Earth Moving</span>
+                </div>
             </div>
+            <button type="button" class="drawer-close-btn" aria-label="Close menu">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+        </div>
+
+        <div class="drawer-nav-list">
+            <a href="#home" class="drawer-link">
+                <svg class="drawer-link-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                <span>Home</span>
+            </a>
+            <a href="#services" class="drawer-link">
+                <svg class="drawer-link-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                <span>Services</span>
+            </a>
+            <a href="#products" class="drawer-link">
+                <svg class="drawer-link-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                <span>Products</span>
+            </a>
+            <a href="#app" class="drawer-link">
+                <svg class="drawer-link-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+                <span>Mobile App</span>
+            </a>
+            <a href="#about" class="drawer-link">
+                <svg class="drawer-link-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                <span>About</span>
+            </a>
+            <a href="#contact" class="drawer-link">
+                <svg class="drawer-link-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Contact</span>
+            </a>
+        </div>
+
+        <a href="tel:+919443350464" class="drawer-call-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg>
+            <span>Call +91 94433 50464</span>
+        </a>
+
+        <a href="https://order.kskvasu.co.in" target="_blank" rel="noopener" class="drawer-order-btn">
+            <span>Book Online Order</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+        </a>
+
+        <div class="mobile-menu-app-section">
+            <div class="mobile-app-label">Official Mobile Application</div>
+            <a href="https://play.google.com/store/apps/details?id=com.nuvaminfotech.kskvasushop" target="_blank" rel="noopener" class="menu-playstore-link">
+                <img src="images/google_play_icon.webp" onerror="this.onerror=null;this.src='images/google_play_icon.png'" alt="Google Play" width="28" height="28">
+                <div class="menu-playstore-content">
+                    <span class="menu-playstore-badge">GET IT ON</span>
+                    <span class="menu-playstore-title">Google Play Store</span>
+                </div>
+            </a>
         </div>
     </div>
 
-    <!-- HERO SECTION -->
+            <!-- HERO SECTION -->
     <section id="home" class="hero">
-        <div class="container hero-content">
-            <h1>KSK VASU & Co</h1>
-            <span class="hero-tag">KSK VASU BRICKS</span>
-            <p>Your Trusted Partner in Construction Materials & Earth Moving Services</p>
-            <p><span class="hero-tag1"><b> Strong Building Materials For Stronger Future</b></span></p><br>
-            <div class="hero-btns">
-                <a href="https://order.kskvasu.co.in" target="_blank" class="btn btn-primary" id="hero-cta">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        style="margin-right: 8px;">
-                        <path
-                            d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
-                        <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
-                        <line x1="12" y1="22.08" x2="12" y2="12" />
-                    </svg>
-                    Book Your Order
-                </a>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">KSK VASU & Co</h1>
+                <span class="hero-tag">KSK VASU BRICKS</span>
+                <p class="hero-subtitle">Your Trusted Partner in Construction Materials & Earth Moving Services</p>
+                <div class="hero-tamil-tagline">✦ தரம் எமது தாரக மந்திரம் ✦</div>
+                <div class="hero-slogan"><b>Strong Building Materials For Stronger Future</b></div>
+
+                <div class="hero-action-group">
+                    <a href="https://order.kskvasu.co.in/" target="_blank" rel="noopener" class="btn btn-orange" id="hero-cta">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                            <line x1="12" y1="22.08" x2="12" y2="12"/>
+                        </svg>
+                        <span>Book Your Order</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- TEMPLATE 5: KEY FIGURES & METRICS COUNTER STRIP -->
+    <section class="metrics-section">
+        <div class="container">
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-icon-wrap">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+                    </div>
+                    <div>
+                        <div class="metric-number">25+ Years</div>
+                        <div class="metric-label">Heritage & Trust in Tamil Nadu</div>
+                    </div>
+                </div>
+
+                <div class="metric-card amber">
+                    <div class="metric-icon-wrap">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14v10h1"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+                    </div>
+                    <div>
+                        <div class="metric-number">15,000+</div>
+                        <div class="metric-label">Successful Site Deliveries</div>
+                    </div>
+                </div>
+
+                <div class="metric-card green">
+                    <div class="metric-icon-wrap">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                    </div>
+                    <div>
+                        <div class="metric-number">100%</div>
+                        <div class="metric-label">ISI & Lab Tested Quality</div>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon-wrap">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    </div>
+                    <div>
+                        <div class="metric-number">24/7</div>
+                        <div class="metric-label">Round-the-Clock Support</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- SERVICES -->
-    <section id="services" class="features">
+    <!-- TEMPLATE 6: COMPREHENSIVE SERVICES BENTO GRID -->
+    <section id="services" class="services-section">
         <div class="container">
-            <div class="text-center">
-                <h2 class="section-title">Our Services</h2>
-                <p class="section-subtitle">Comprehensive solutions for all your construction needs, delivered with
-                    precision and care.</p>
+            <div class="section-header">
+                <span class="section-tag">Our Services</span>
+                <h2 class="section-title">Engineered Construction Solutions</h2>
+                <div class="section-tamil-sub">கட்டுமானத் தேவைகளுக்கான முழுமையான தீர்வுகள்</div>
+                <p class="section-subtitle">From foundation excavation to structural masonry, we deliver premium materials and heavy machinery to power every phase of your project.</p>
             </div>
 
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🧱</div>
-                    <h3>Bricks Manufacturer</h3>
-                    <p>We manufacture premium quality chamber bricks using advanced techniques to ensure superior
-                        strength, durability, and perfect shape for lasting structures.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🚚</div>
-                    <h3>Constructions Material Supply</h3>
-                    <p>Reliable supply of high-quality construction materials including bricks, cement, and sand
-                        delivered to your site.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔧</div>
-                    <h3>Construction Support</h3>
-                    <p>Complete construction support services with expert guidance and quality materials for your
-                        building projects.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📐</div>
-                    <h3>Building Planning</h3>
-                    <p>Comprehensive building planning services from concept to completion, ensuring optimal design and
-                        regulatory compliance.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🏗️</div>
-                    <h3>Earth Moving</h3>
-                    <p>Professional earth moving services with modern JCB equipment for excavation, land clearing, and
-                        site preparation projects.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🕐</div>
-                    <h3>24/7 Availability</h3>
-                    <p>We are available round the clock, 24/7, to serve your construction needs and handle any urgent
-                        requirements.</p>
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card highlight">
+                    <div class="service-card-header">
+                        <div class="service-icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/><path d="M9 3v6"/><path d="M15 9v6"/><path d="M9 15v6"/></svg></div>
+                        <div class="service-heading-text">
+                            <h3 class="service-title">Bricks Manufacturer</h3>
+                            <div class="service-tamil-name">உயர்தர சேம்பர் செங்கல் தயாரிப்பு</div>
+                        </div>
+                    </div>
+                    <p class="service-desc">Kiln-fired chamber bricks engineered for high structural strength and durability.</p>
+                    <div class="service-feature-list">
+                        <div class="service-feature-item">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Uniform sharp edges & superior bonding</span>
+                        </div>
+                        <div class="service-feature-item">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>High load-bearing strength for multi-story builds</span>
+                        </div>
+                    </div>
+                    <div class="service-footer">
+                        <span class="badge-pill amber" style="font-size: 0.75rem;">Direct From Kiln</span>
+                        <a href="https://order.kskvasu.co.in" target="_blank" rel="noopener" class="service-link">Order Bricks →</a>
+                    </div>
                 </div>
 
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-card-header">
+                        <div class="service-icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14v10h1"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></div>
+                        <div class="service-heading-text">
+                            <h3 class="service-title">Constructions Material Supply</h3>
+                            <div class="service-tamil-name">கட்டுமானப் பொருட்கள் சப்ளை</div>
+                        </div>
+                    </div>
+                    <p class="service-desc">Prompt site delivery of certified cement, graded sand, and aggregates.</p>
+                    <div class="service-feature-list">
+                        <div class="service-feature-item">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Factory-direct wholesale quantities</span>
+                        </div>
+                        <div class="service-feature-item">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Verified weight and volumetric accuracy</span>
+                        </div>
+                    </div>
+                    <div class="service-footer">
+                        <span class="badge-pill" style="font-size: 0.75rem;">Site Delivered</span>
+                        <a href="#products" class="service-link">View Materials →</a>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-card-header">
+                        <div class="service-icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18h20"/><path d="M5 18V8a7 7 0 0 1 14 0v10"/><path d="M9 11h6"/><path d="M12 4v4"/></svg></div>
+                        <div class="service-heading-text">
+                            <h3 class="service-title">Earth Moving Services</h3>
+                            <div class="service-tamil-name">ஜேசிபி மண் அள்ளும் இயந்திரங்கள்</div>
+                        </div>
+                    </div>
+                    <p class="service-desc">Modern JCB equipment with skilled operators for site grading and excavation.</p>
+                    <div class="service-feature-list">
+                        <div class="service-feature-item">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Flexible hourly & project contract rentals</span>
+                        </div>
+                        <div class="service-feature-item">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Experienced, safety-certified operators</span>
+                        </div>
+                    </div>
+                    <div class="service-footer">
+                        <span class="badge-pill green" style="font-size: 0.75rem;">Instant Dispatch</span>
+                        <a href="tel:+919443350464" class="service-link">Book JCB →</a>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="service-card-header">
+                        <div class="service-icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12.5 7.5 3 3"/><path d="m11.5 16.5 5-5"/><circle cx="14" cy="14" r=".5" fill="currentColor"/><circle cx="10" cy="10" r=".5" fill="currentColor"/><path d="m20.59 13.41-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div>
+                        <div class="service-heading-text">
+                            <h3 class="service-title">Authorized Dalmia Cement</h3>
+                            <div class="service-tamil-name">டால்மியா சிமெண்ட் டீலர்</div>
+                        </div>
+                    </div>
+                    <p class="service-desc">100% genuine Dalmia cement with rapid setting and anti-corrosion protection.</p>
+                    <div class="service-feature-list">
+                        <div class="service-feature-item">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>OPC & PPC grades directly from factory</span>
+                        </div>
+                        <div class="service-feature-item">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Wholesale pricing for contractors & builders</span>
+                        </div>
+                    </div>
+                    <div class="service-footer">
+                        <span class="badge-pill" style="font-size: 0.75rem;">Official Dealer</span>
+                        <a href="https://order.kskvasu.co.in" target="_blank" rel="noopener" class="service-link">Order Cement →</a>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card">
+                    <div class="service-card-header">
+                        <div class="service-icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m2 14 7 7"/><path d="m6 10 7 7"/><path d="m10 6 7 7"/><path d="m14 2 7 7"/><path d="m21.7 2.3-1.4-1.4a2 2 0 0 0-2.8 0L2.3 16.1a2 2 0 0 0 0 2.8l1.4 1.4a2 2 0 0 0 2.8 0L21.7 5.1a2 2 0 0 0 0-2.8z"/></svg></div>
+                        <div class="service-heading-text">
+                            <h3 class="service-title">Building Planning & Support</h3>
+                            <div class="service-tamil-name">கட்டிட வரைபடம் & திட்டமிடல்</div>
+                        </div>
+                    </div>
+                    <p class="service-desc">Expert blueprints, accurate material takeoff, and structural planning support.</p>
+                    <div class="service-feature-list">
+                        <div class="service-feature-item">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Accurate material cost optimization</span>
+                        </div>
+                        <div class="service-feature-item">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>On-site engineering technical visits</span>
+                        </div>
+                    </div>
+                    <div class="service-footer">
+                        <span class="badge-pill" style="font-size: 0.75rem;">Consultation</span>
+                        <a href="#contact" class="service-link">Get Consultation →</a>
+                    </div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="service-card">
+                    <div class="service-card-header">
+                        <div class="service-icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                        <div class="service-heading-text">
+                            <h3 class="service-title">24/7 Site Availability</h3>
+                            <div class="service-tamil-name">24/7 வாகன சப்ளை சேவை</div>
+                        </div>
+                    </div>
+                    <p class="service-desc">Round-the-clock dispatch and emergency site drops for active pours.</p>
+                    <div class="service-feature-list">
+                        <div class="service-feature-item">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Live GPS tracking through mobile app</span>
+                        </div>
+                        <div class="service-feature-item">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Night-time & early morning scheduled drops</span>
+                        </div>
+                    </div>
+                    <div class="service-footer">
+                        <span class="badge-pill green" style="font-size: 0.75rem;">Always Active</span>
+                        <a href="tel:+919443350464" class="service-link">Call Fleet →</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- PRODUCTS -->
-    <section id="products" class="products">
+    <!-- TEMPLATE 7: PRODUCT CATALOG SHOWCASE WITH CATEGORY FILTERS -->
+    <section id="products" class="products-section">
         <div class="container">
-            <div class="text-center">
+            <div class="section-header">
+                <span class="section-tag">Quality Materials</span>
                 <h2 class="section-title">Premium Products</h2>
-                <p class="section-subtitle">We stock only the best quality materials to ensure your structures stand the
-                    test of time.</p>
+                <div class="section-tamil-sub">நீடித்த கட்டடங்களுக்கான முதல்தர கட்டுமானப் பொருட்கள்</div>
+                <p class="section-subtitle">We stock and manufacture only the best quality materials to ensure your structures stand the test of time.</p>
+            </div>
+
+            <!-- Category Filter Tabs -->
+            <div class="product-filter-bar">
+                <button type="button" class="filter-btn active" data-filter="all">All Products (6)</button>
+                <button type="button" class="filter-btn" data-filter="bricks">Bricks & Blocks</button>
+                <button type="button" class="filter-btn" data-filter="cement">Cement</button>
+                <button type="button" class="filter-btn" data-filter="sand">Sand & Aggregates</button>
             </div>
 
             <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-img">
-                        <img src="images/cb1.jpg" alt="Cement Bricks">
+                <!-- Product 1: Cement Bricks -->
+                <div class="product-card" data-category="bricks">
+                    <div class="product-img-wrap">
+                        <img src="images/cb1.webp" onerror="this.onerror=null;this.src='images/cb1.jpg'" alt="Cement Bricks" class="product-img" loading="lazy" width="400" height="210">
+                        <div class="product-status-overlay">
+                            <span>●</span> In Stock
+                        </div>
                     </div>
                     <div class="product-info">
-                        <h3>Cement Bricks</h3>
-                        <p>High-strength cement bricks for durable construction and excellent weather resistance.</p>
-                        <a href="https://order.kskvasu.co.in" target="_blank" class="btn btn-primary"
-                            style="margin-top: 15px; width: 100%; justify-content: center;">Order Now</a>
+                        <span class="product-category">Masonry</span>
+                        <h3 class="product-name">Cement Bricks</h3>
+                        <div class="product-tamil-name">சிமெண்ட் செங்கற்கள்</div>
+                        <p class="product-desc">High-strength, weather-resistant solid cement bricks for lasting walls.</p>
+                        <div class="product-specs-list">
+                            <span class="spec-chip">Strength: > 5.0 N/mm²</span>
+                            <span class="spec-chip">Exact Shape</span>
+                            <span class="spec-chip">Water Cured</span>
+                        </div>
+                        <div class="product-actions">
+                            <a href="https://order.kskvasu.co.in" target="_blank" rel="noopener" class="btn btn-primary">
+                                Order Now
+                            </a>
+                            <a href="tel:+919443350464" class="btn btn-secondary" title="Call for pricing">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="product-card">
-                    <div class="product-img">
-                        <img src="images/rb1.jpg" alt="Red Bricks">
+                <!-- Product 2: Red Bricks -->
+                <div class="product-card" data-category="bricks">
+                    <div class="product-img-wrap">
+                        <img src="images/rb1.webp" onerror="this.onerror=null;this.src='images/rb1.jpg'" alt="Chamber Red Bricks" class="product-img" loading="lazy" width="400" height="210">
+                        <div class="product-status-overlay">
+                            <span>●</span> In Stock
+                        </div>
                     </div>
                     <div class="product-info">
-                        <h3>Red Bricks</h3>
-                        <p>Traditional kiln-fired red clay bricks offering superior thermal insulation.</p>
-                        <a href="https://order.kskvasu.co.in" target="_blank" class="btn btn-primary"
-                            style="margin-top: 15px; width: 100%; justify-content: center;">Order Now</a>
+                        <span class="product-category">Clay Masonry</span>
+                        <h3 class="product-name">Chamber Red Bricks</h3>
+                        <div class="product-tamil-name">சேம்பர் செங்கற்கள்</div>
+                        <p class="product-desc">Kiln-fired clay bricks with superior thermal insulation and strong bond.</p>
+                        <div class="product-specs-list">
+                            <span class="spec-chip">100% Clay Kiln Fired</span>
+                            <span class="spec-chip">Ringing Sound Grade</span>
+                            <span class="spec-chip">Zero Efflorescence</span>
+                        </div>
+                        <div class="product-actions">
+                            <a href="https://order.kskvasu.co.in" target="_blank" rel="noopener" class="btn btn-primary">
+                                Order Now
+                            </a>
+                            <a href="tel:+919443350464" class="btn btn-secondary" title="Call for pricing">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="product-card">
-                    <div class="product-img">
-                        <img src="images/c1.jpeg" alt="Dalmia Cement">
+                <!-- Product 3: Dalmia Cement -->
+                <div class="product-card" data-category="cement">
+                    <div class="product-img-wrap">
+                        <img src="images/c1.webp" onerror="this.onerror=null;this.src='images/c1.jpeg'" alt="Dalmia Cement" class="product-img" loading="lazy" width="400" height="210">
+                        <div class="product-status-overlay">
+                            <span>●</span> In Stock
+                        </div>
                     </div>
                     <div class="product-info">
-                        <h3>Dalmia Cement</h3>
-                        <p>Authorized dealer of Dalmia cement, ensuring top-tier binding strength.</p>
-                        <a href="https://order.kskvasu.co.in" target="_blank" class="btn btn-primary"
-                            style="margin-top: 15px; width: 100%; justify-content: center;">Order Now</a>
+                        <span class="product-category">Binding Materials</span>
+                        <h3 class="product-name">Dalmia Cement</h3>
+                        <div class="product-tamil-name">டால்மியா சிமெண்ட்</div>
+                        <p class="product-desc">Certified 53 Grade cement with superior anti-corrosion binding power.</p>
+                        <div class="product-specs-list">
+                            <span class="spec-chip">53 Grade OPC / PPC</span>
+                            <span class="spec-chip">Anti-Corrosion Tech</span>
+                            <span class="spec-chip">Direct From Plant</span>
+                        </div>
+                        <div class="product-actions">
+                            <a href="https://order.kskvasu.co.in" target="_blank" rel="noopener" class="btn btn-primary">
+                                Order Now
+                            </a>
+                            <a href="tel:+919443350464" class="btn btn-secondary" title="Call for pricing">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="product-card">
-                    <div class="product-img">
-                        <img src="images/msand.jpg" alt="M-Sand">
+                <!-- Product 4: M-Sand -->
+                <div class="product-card" data-category="sand">
+                    <div class="product-img-wrap">
+                        <img src="images/msand.webp" onerror="this.onerror=null;this.src='images/msand.jpg'" alt="M-Sand" class="product-img" loading="lazy" width="400" height="210">
+                        <div class="product-status-overlay">
+                            <span>●</span> In Stock
+                        </div>
                     </div>
                     <div class="product-info">
-                        <h3>M-Sand</h3>
-                        <p>High-quality Manufactured Sand for strong and consistent concrete work.</p>
-                        <a href="https://order.kskvasu.co.in" target="_blank" class="btn btn-primary"
-                            style="margin-top: 15px; width: 100%; justify-content: center;">Order Now</a>
+                        <span class="product-category">Concrete Sand</span>
+                        <h3 class="product-name">M-Sand (Manufactured Sand)</h3>
+                        <div class="product-tamil-name">எம்-சாண்ட் (கான்கிரீட் மணல்)</div>
+                        <p class="product-desc">Triple-washed, silt-free manufactured sand for heavy RCC concrete.</p>
+                        <div class="product-specs-list">
+                            <span class="spec-chip">Zone II Graded</span>
+                            <span class="spec-chip">Silt Content < 2%</span>
+                            <span class="spec-chip">Ideal for RCC & Beams</span>
+                        </div>
+                        <div class="product-actions">
+                            <a href="https://order.kskvasu.co.in" target="_blank" rel="noopener" class="btn btn-primary">
+                                Order Now
+                            </a>
+                            <a href="tel:+919443350464" class="btn btn-secondary" title="Call for pricing">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="product-card">
-                    <div class="product-img">
-                        <img src="images/psand.jpg" alt="P-Sand">
+                <!-- Product 5: P-Sand -->
+                <div class="product-card" data-category="sand">
+                    <div class="product-img-wrap">
+                        <img src="images/psand.webp" onerror="this.onerror=null;this.src='images/psand.jpg'" alt="P-Sand" class="product-img" loading="lazy" width="400" height="210">
+                        <div class="product-status-overlay">
+                            <span>●</span> In Stock
+                        </div>
                     </div>
                     <div class="product-info">
-                        <h3>P-Sand</h3>
-                        <p>Fine Plastering Sand for smooth, crack-free wall finishes.</p>
-                        <a href="https://order.kskvasu.co.in" target="_blank" class="btn btn-primary"
-                            style="margin-top: 15px; width: 100%; justify-content: center;">Order Now</a>
+                        <span class="product-category">Plastering Sand</span>
+                        <h3 class="product-name">P-Sand (Plastering Sand)</h3>
+                        <div class="product-tamil-name">பி-சாண்ட் (பூச்சு மணல்)</div>
+                        <p class="product-desc">Micro-sifted fine sand for smooth, crack-free plastering finishes.</p>
+                        <div class="product-specs-list">
+                            <span class="spec-chip">Zone IV Micro Sifted</span>
+                            <span class="spec-chip">Smooth Finish</span>
+                            <span class="spec-chip">No Shrinkage Cracks</span>
+                        </div>
+                        <div class="product-actions">
+                            <a href="https://order.kskvasu.co.in" target="_blank" rel="noopener" class="btn btn-primary">
+                                Order Now
+                            </a>
+                            <a href="tel:+919443350464" class="btn btn-secondary" title="Call for pricing">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="product-card">
-                    <div class="product-img">
-                        <img src="images/jally.png" alt="Jally">
+
+                <!-- Product 6: Jally -->
+                <div class="product-card" data-category="sand">
+                    <div class="product-img-wrap">
+                        <img src="images/jally.webp" onerror="this.onerror=null;this.src='images/jally.png'" alt="Jally Blue Metal Aggregate" class="product-img" loading="lazy" width="400" height="210">
+                        <div class="product-status-overlay">
+                            <span>●</span> In Stock
+                        </div>
                     </div>
                     <div class="product-info">
-                        <h3>Jally</h3>
-                        <p>Premium jally with fine texture, perfect for RCC concrete and masonry work.</p>
-                        <a href="https://order.kskvasu.co.in" target="_blank" class="btn btn-primary"
-                            style="margin-top: 15px; width: 100%; justify-content: center;">Order Now</a>
+                        <span class="product-category">Coarse Aggregate</span>
+                        <h3 class="product-name">Jally (Blue Metal Gravel)</h3>
+                        <div class="product-tamil-name">ப்ளூ மெட்டல் ஜல்லி</div>
+                        <p class="product-desc">Graded hard blue metal granite for robust concrete and slab casting.</p>
+                        <div class="product-specs-list">
+                            <span class="spec-chip">20mm & 40mm Graded</span>
+                            <span class="spec-chip">Hard Granite Stone</span>
+                            <span class="spec-chip">High Crushing Strength</span>
+                        </div>
+                        <div class="product-actions">
+                            <a href="https://order.kskvasu.co.in" target="_blank" rel="noopener" class="btn btn-primary">
+                                Order Now
+                            </a>
+                            <a href="tel:+919443350464" class="btn btn-secondary" title="Call for pricing">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="about">
-        <div class="container about-container">
-            <div class="about-img">
-                <img src="images/banner.png" alt="KSK VASU Office">
-            </div>
-            <div class="about-text">
-                <h2>About KSK VASU & Co</h2>
-                <p>With years of experience in the construction industry, KSK VASU & Co has established itself as a
-                    trusted name in providing high-quality construction materials and professional earth moving
-                    services.</p>
-                <p>We are committed to delivering excellence in every project, ensuring our clients receive the best
-                    materials and services for their construction needs.</p>
-
-                <ul class="check-list">
-                    <li>Quality Construction Materials</li>
-                    <li>Professional Building Planning</li>
-                    <li>Authorized Dalmia Cement Dealer</li>
-                    <li>Modern JCB Equipment</li>
-                    <li>Competitive Pricing</li>
-                    <li>Timely Project Delivery</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="contact">
+    <!-- TEMPLATE 9: WHY CHOOSE US -->
+    <section class="why-us-section">
         <div class="container">
-            <div class="text-center">
-                <h2 class="section-title" style="color: white;">Get In Touch</h2>
-                <p class="section-subtitle" style="color: var(--gray-300);">Ready to start your project? Contact us
-                    today.</p>
+            <div class="section-header">
+                <span class="section-tag">Why Choose Us</span>
+                <h2 class="section-title">Built On Uncompromising Standards</h2>
+                <div class="section-tamil-sub">நம்பகமான தரம் • நியாயமான விலை • உடனடி சப்ளை</div>
+                <p class="section-subtitle">Why leading civil contractors, builders, and homeowners choose KSK VASU & Co. as their trusted building partner.</p>
+            </div>
+
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-card-header">
+                        <div class="why-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12.5 7.5 3 3"/><path d="m11.5 16.5 5-5"/><circle cx="14" cy="14" r=".5" fill="currentColor"/><circle cx="10" cy="10" r=".5" fill="currentColor"/><path d="m20.59 13.41-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+                    </div>
+                        <h3 class="why-title">Factory Direct Pricing</h3>
+                    </div>
+                    <p class="why-desc">No middlemen or commission markups. You buy straight from our brick kilns and bulk quarry supply yards.</p>
+                </div>
+
+                <div class="why-card amber">
+                    <div class="why-card-header">
+                        <div class="why-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"/><path d="M8.5 2h7"/><path d="M7 16h10"/></svg>
+                    </div>
+                        <h3 class="why-title">Lab Tested Purity</h3>
+                    </div>
+                    <p class="why-desc">Every sand load is washed to eliminate silt and clay. Our bricks pass rigorous load-bearing and water curing tests.</p>
+                </div>
+
+                <div class="why-card green">
+                    <div class="why-card-header">
+                        <div class="why-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14v10h1"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+                    </div>
+                        <h3 class="why-title">Dedicated Machinery Fleet</h3>
+                    </div>
+                    <p class="why-desc">Modern JCB excavators, tippers, and multi-ton trucks ready for rapid site dispatch across Tamil Nadu.</p>
+                </div>
+
+                <div class="why-card purple">
+                    <div class="why-card-header">
+                        <div class="why-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/><path d="M12 22a4 4 0 0 0 4-4"/></svg>
+                    </div>
+                        <h3 class="why-title">24/7 Site Support</h3>
+                    </div>
+                    <p class="why-desc">Round-the-clock emergency dispatch and phone consultation to keep concrete pours and construction uninterrupted.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEMPLATE 10: HOW IT WORKS (3-STEP TIMELINE) -->
+    <section class="steps-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Simple Process</span>
+                <h2 class="section-title">How To Order Your Materials</h2>
+                <div class="section-tamil-sub">எளிய முறையில் பொருட்களை ஆர்டர் செய்யும் வழிமுறைகள்</div>
+                <p class="section-subtitle">We have simplified construction logistics so you get transparent quotes and prompt site unloading in 3 easy steps.</p>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-card-header">
+                        <span class="step-badge">Step 01</span>
+                        <div class="step-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+                        </div>
+                    </div>
+                    <h3 class="step-title">Select Materials or Service</h3>
+                    <p class="step-desc">Browse our catalog and choose your required chamber bricks, certified Dalmia cement, washed sand, or modern JCB equipment.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-card-header">
+                        <span class="step-badge">Step 02</span>
+                        <div class="step-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                        </div>
+                    </div>
+                    <h3 class="step-title">Instant Transparent Quote</h3>
+                    <p class="step-desc">Receive honest, factory-direct pricing with zero hidden delivery charges via phone, WhatsApp, or our mobile app.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-card-header">
+                        <span class="step-badge">Step 03</span>
+                        <div class="step-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                        </div>
+                    </div>
+                    <h3 class="step-title">Fast Site Delivery & Unload</h3>
+                    <p class="step-desc">Our drivers arrive at your construction site on schedule, verify quantity, and safely unload materials where needed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEMPLATE 11: OFFICIAL GOOGLE PLAY APP SHOWCASE (CLEAN WHITE CARD) -->
+    <section id="app" class="app-showcase-section">
+        <div class="container">
+            <div class="app-card-wrapper">
+                <div class="app-card-content">
+                    <div class="app-badge-pill">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#15803d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            <path d="M9 12l2 2 4-4"></path>
+                        </svg>
+                        <span>Official Google Play App</span>
+                    </div>
+
+                    <h2 class="app-title">Order Materials on the Go</h2>
+
+                    <p class="app-description">
+                        Direct factory rates, site delivery, and live vehicle tracking right from your mobile.
+                    </p>
+
+                    <div class="app-chips-row">
+                        <div class="app-chip">
+                            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#0284c7" stroke-width="2.2"><rect x="5" y="2" width="14" height="20" rx="3"></rect><path d="M12 18h.01"></path></svg>
+                            <span>1-Tap Order</span>
+                        </div>
+                        <div class="app-chip">
+                            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#0284c7" stroke-width="2.2"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path><path d="M15 18H9"></path><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14v10h1"></path><circle cx="7" cy="18" r="2"></circle><circle cx="17" cy="18" r="2"></circle></svg>
+                            <span>Live Tracking</span>
+                        </div>
+                        <div class="app-chip">
+                            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#0284c7" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                            <span>Factory Direct</span>
+                        </div>
+                    </div>
+
+                    <div class="app-cta-row">
+                        <a href="https://play.google.com/store/apps/details?id=com.nuvaminfotech.kskvasushop" target="_blank" rel="noopener" class="google-play-btn" id="google-play-cta" aria-label="Get KSK VASU App on Google Play">
+                            <svg class="google-play-btn-icon" viewBox="0 0 512 512" width="24" height="24" aria-hidden="true">
+                                <path fill="#00C3FF" d="M32.5 17.5c-4 4.3-6.5 10.7-6.5 18.5v439.9c0 7.8 2.5 14.2 6.5 18.5l237.4-238.4L32.5 17.5z"/>
+                                <path fill="#00E676" d="M348.5 348.5l-78.6-78.6-237.4 238.4c4.6 4.9 12 7.7 20.9 7.7 5.7 0 11.5-1.2 17.1-3.7l278-163.8z"/>
+                                <path fill="#FFD400" d="M479.5 237.7l-78.8-46.4-52.2 52.2 52.2 52.2 79-46.6c11.7-6.9 18.3-17.7 18.3-30.7s-6.6-23.8-18.5-30.7z"/>
+                                <path fill="#FF334B" d="M70.5 8.2C64.9 5.7 59.1 4.5 53.4 4.5c-8.9 0-16.3 2.8-20.9 7.7l237.4 238.4 78.6-78.6-278-163.8z"/>
+                            </svg>
+                            <div class="play-btn-text">
+                                <span class="play-subtitle">GET IT ON</span>
+                                <span class="play-title">Google Play</span>
+                            </div>
+                            <svg class="play-btn-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </a>
+
+                        <div class="app-qr-box" id="qr-trigger" role="button" tabindex="0" title="Click to enlarge QR code" aria-label="Enlarge QR Code to scan app">
+                            <img src="images/qr_playstore.png" alt="Scan QR Code" class="qr-code-img" width="38" height="38" loading="lazy">
+                            <div class="qr-text-col">
+                                <span class="qr-heading">Scan QR</span>
+                                <span class="qr-hint">Enlarge ⤢</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="app-card-visual">
+                    <div class="app-visual-container">
+                        <img src="images/app_banner.webp" onerror="this.onerror=null;this.src='images/app_banner.jpg'" alt="KSK VASU Mobile Application" class="app-mockup-img" width="420" height="236" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEMPLATE 12: ABOUT KSK VASU & CO -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-img-box">
+                    <img src="images/banner.webp" onerror="this.onerror=null;this.src='images/banner.png'" alt="KSK VASU Office & Kiln Operations" class="about-img" width="560" height="380" loading="lazy">
+                </div>
+
+                <div class="about-text">
+                    <span class="section-tag">About</span>
+                    <h2>About KSK VASU & Co</h2>
+                    <div class="section-tamil-sub">தரம் எமது தாரக மந்திரம் • நம்பகமான கட்டுமானப் பணிகள்</div>
+                    <p>With years of experience in the construction industry, KSK VASU & Co has established itself as a trusted name in providing high-quality construction materials and professional earth moving services.</p>
+                    <p>We are committed to delivering excellence in every project, ensuring our clients receive the best materials and services for their construction needs.</p>
+
+                    <div class="check-list">
+                        <div class="check-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                            <span>Quality Construction Materials</span>
+                        </div>
+                        <div class="check-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                            <span>Professional Building Planning</span>
+                        </div>
+                        <div class="check-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                            <span>Authorized Dalmia Cement Dealer</span>
+                        </div>
+                        <div class="check-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                            <span>Modern JCB Equipment</span>
+                        </div>
+                        <div class="check-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                            <span>Competitive Pricing</span>
+                        </div>
+                        <div class="check-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                            <span>Timely Project Delivery</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEMPLATE 13: TESTIMONIALS & REVIEWS -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Testimonials</span>
+                <h2 class="section-title">Client Feedback</h2>
+                <div class="section-tamil-sub">வாடிக்கையாளர்களின் நற்சான்றிதழ்கள்</div>
+                <p class="section-subtitle">Real experiences from commercial builders, structural engineers, and independent homeowners across Tamil Nadu.</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div>
+                        <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        </div>
+                        <p class="testimonial-quote">"The chamber bricks from KSK VASU are exceptionally well-burned with zero wastage. Edges are sharp and compressive strength meets all structural guidelines for our apartment project."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SK</div>
+                        <div>
+                            <div class="author-name">S. Kumaresan</div>
+                            <div class="author-role">Civil Contractor, Namakkal</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div>
+                        <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        </div>
+                        <p class="testimonial-quote">"Whenever we run night concrete pours, we rely on KSK VASU's 24/7 delivery. Dalmia cement bags are always fresh and their M-sand has virtually zero silt. Delivery is always prompt."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RM</div>
+                        <div>
+                            <div class="author-name">R. Murugesh</div>
+                            <div class="author-role">Structural Engineer, Salem</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div>
+                        <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        </div>
+                        <p class="testimonial-quote">"Booked their JCB for basement land grading and trenching. The operator was highly experienced and finished the excavation in record time with perfect slope angles. Highly recommended!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">PR</div>
+                        <div>
+                            <div class="author-name">P. Ravichandran</div>
+                            <div class="author-role">Home Builder, Erode</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEMPLATE 14: FREQUENTLY ASKED QUESTIONS (FAQ) -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Got Questions?</span>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="section-tamil-sub">அடிக்கடி கேட்கப்படும் கேள்விகள்</div>
+                <p class="section-subtitle">Common queries regarding material delivery, minimum orders, JCB hire, and payment terms.</p>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item active">
+                    <button type="button" class="faq-question">
+                        <span>What regions in Tamil Nadu do you deliver to?</span>
+                        <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="faq-answer">
+                        We deliver materials across Salem, Namakkal, Erode, Dharmapuri, and surrounding districts. With our fleet of tippers and trucks, we also handle bulk supply contracts across Tamil Nadu.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button type="button" class="faq-question">
+                        <span>How fast can urgent construction materials reach my site?</span>
+                        <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="faq-answer">
+                        We offer same-day dispatch and 24/7 emergency site logistics. For local sites within our primary zone, materials can often be dispatched and unloaded within 2 to 4 hours of confirmation.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button type="button" class="faq-question">
+                        <span>Are your chamber bricks water-cured and tested?</span>
+                        <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="faq-answer">
+                        Yes. Our chamber bricks are manufactured in state-of-the-art kilns and undergo rigorous water curing and compression tests to ensure low water absorption, ringing sound, and zero efflorescence.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button type="button" class="faq-question">
+                        <span>Can I book JCB earth moving machinery on hourly or project rates?</span>
+                        <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="faq-answer">
+                        Yes. We provide flexible rental plans including hourly hire, full-day packages, and turnkey project contracts for site preparation, trenching, leveling, and debris removal.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button type="button" class="faq-question">
+                        <span>Can I order smaller quantities for home renovation or compound wall?</span>
+                        <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="faq-answer">
+                        Absolutely. We cater to independent homeowners and small remodeling jobs just as attentively as large commercial sites. You can order single loads or mixed supply matching your site's needs.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEMPLATE 15: CONTACT & YARD LOCATION HUB -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Contact</span>
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="section-tamil-sub">நேரடி தொடர்பு & தள பார்வை</div>
+                <p class="section-subtitle">Ready to start your project? Contact us today for immediate assistance and quotes on materials and services.</p>
             </div>
 
             <div class="contact-grid">
-                <a href="https://maps.app.goo.gl/bKYi6iFRUcLBSPBZ9" target="_blank" class="contact-card">
+                <a href="https://maps.app.goo.gl/bKYi6iFRUcLBSPBZ9" target="_blank" rel="noopener" class="contact-card">
                     <div class="contact-icon-wrapper location">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 90 90">
-                            <path
-                                d="M 54.489 1.463 C 51.495 0.517 48.311 0 45.003 0 c -9.649 0 -18.284 4.362 -24.041 11.214 l 14.834 12.48 L 54.489 1.463 z"
-                                fill="rgb(64,112,183)" />
-                            <path
-                                d="M 20.955 11.214 c -4.586 5.457 -7.356 12.5 -7.356 20.183 c 0 5.907 1.177 10.69 3.11 14.977 l 19.081 -22.68 L 20.955 11.214 z"
-                                fill="rgb(234,69,53)" />
-                            <path
-                                d="M 45.003 19.394 c 6.635 0 12.01 5.376 12.01 12.01 c 0 2.953 -1.068 5.662 -2.838 7.751 c 0 0 9.486 -11.282 18.693 -22.224 C 69.065 9.615 62.471 3.988 54.496 1.463 L 35.79 23.694 C 37.994 21.061 41.302 19.394 45.003 19.394"
-                                fill="rgb(85,126,191)" />
-                            <path
-                                d="M 45.003 43.408 c -6.635 0 -12.01 -5.376 -12.01 -12.01 c 0 -2.933 1.055 -5.621 2.797 -7.71 L 16.709 46.375 c 3.259 7.233 8.683 13.038 14.27 20.353 l 23.191 -27.573 C 51.971 41.754 48.678 43.408 45.003 43.408"
-                                fill="rgb(249,188,21)" />
-                            <path
-                                d="M 53.714 74.254 c 10.473 -16.379 22.687 -23.817 22.687 -42.856 c 0 -5.219 -1.279 -10.139 -3.532 -14.467 L 30.986 66.728 c 1.776 2.327 3.566 4.804 5.315 7.533 C 42.669 84.1 40.9 90 45.01 90 C 49.107 90 47.344 84.093 53.714 74.254"
-                                fill="rgb(54,168,82)" />
-                        </svg>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                     </div>
                     <h3>Visit Our Office</h3>
-                    <p class="contact-desc">Visit our office for all your construction material needs and consultations.
-                    </p>
+                    <p class="contact-desc">Visit our office for all your construction material needs and consultations.</p>
                     <span class="contact-link">Get Directions ↗</span>
                 </a>
 
                 <a href="tel:+919443350464" class="contact-card">
                     <div class="contact-icon-wrapper phone">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
-                            stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path
-                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-                        </svg>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                     </div>
                     <h3>Call Us</h3>
-                    <p class="contact-highlight">+919443350464</p>
+                    <p class="contact-highlight">+91 94433 50464</p>
                     <p class="contact-desc">Call us for immediate assistance and quotes on materials and services.</p>
                     <span class="contact-link">Call Now ↗</span>
                 </a>
 
                 <a href="mailto:kskvasu.co@gmail.com" class="contact-card">
                     <div class="contact-icon-wrapper email">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="28" height="28">
-                            <path fill="#34A853" d="M41,12v24c0,2.2-1.8,4-4,4h-4V19l8-6V12z" />
-                            <path fill="#4285F4" d="M11,19v21H7c-2.2,0-4-1.8-4-4V12l8,6V19z" />
-                            <path fill="#EA4335" d="M24,29L7,16.8V9.1L24,22l17-12.9v7.7L24,29z" />
-                            <path fill="#EA4335" d="M41,9.1v3.1L24,25L24,25l0-3l13-9.9C38.3,11.2,39.7,10,41,9.1z" />
-                            <path fill="#FBBC04" d="M7,9.1l17,12.9L24,25L7,12.2V9.1z" />
-                            <path fill="#C5221F" d="M7,12.2V9.1C8.3,10,9.7,11.2,11,12.1L7,15.2V12.2z" />
-                        </svg>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                     </div>
                     <h3>Email Us</h3>
                     <p class="contact-highlight">kskvasu.co@gmail.com</p>
@@ -336,98 +982,275 @@
                 </a>
 
                 <div class="contact-card">
-                    <div class="contact-icon-wrapper hours">
-                        <span class="contact-icon">🕐</span>
-                    </div>
+                    <div class="contact-icon-wrapper hours"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
                     <h3>Business Hours</h3>
                     <p class="contact-highlight">24 × 7</p>
                     <p class="contact-desc">We're available round the clock to serve your construction needs.</p>
                     <p class="contact-status">● Available Now</p>
                 </div>
             </div>
-        </div><br>
-        <!-- CTA BANNER -->
-        <section class="cta-banner">
-            <div class="container">
-                <div class="cta-content">
-                    <div class="cta-text">
-                        <h2>Ready to Build Your Dream Project?</h2>
-                        <p>Get premium construction materials delivered to your site. Order now!</p>
+
+            <!-- Quick Inquiry Card -->
+            <div class="inquiry-card">
+                <div class="inquiry-header">
+                    <h3>Request Quick Material Quote</h3>
+                    <p>Tell us what you need and our dispatch manager will connect with you via WhatsApp/Phone immediately.</p>
+                </div>
+
+                <form id="quick-inquiry-form">
+                    <div class="inquiry-form-grid">
+                        <input type="text" id="inquiry-name" class="inquiry-input" placeholder="Your Name *" required>
+                        <input type="tel" id="inquiry-phone" class="inquiry-input" placeholder="Phone Number *" required>
+                        <select id="inquiry-material" class="inquiry-input">
+                            <option value="Chamber Bricks">Chamber Red Bricks (சேம்பர் செங்கல்)</option>
+                            <option value="Cement Bricks">Cement Bricks (சிமெண்ட் செங்கல்)</option>
+                            <option value="Dalmia Cement">Dalmia Cement Bags (டால்மியா சிமெண்ட்)</option>
+                            <option value="M-Sand">M-Sand Concrete (எம்-சாண்ட்)</option>
+                            <option value="P-Sand">P-Sand Plastering (பி-சாண்ட்)</option>
+                            <option value="Blue Metal Jally">Blue Metal Jally (ப்ளூ மெட்டல் ஜல்லி)</option>
+                            <option value="JCB Earth Moving">JCB Earth Moving Service (ஜேசிபி சேவை)</option>
+                            <option value="Full Project Supply">Full Project Supply Package</option>
+                        </select>
+                        <input type="text" id="inquiry-location" class="inquiry-input" placeholder="Delivery Location (e.g. Salem / Namakkal)">
                     </div>
-                    <div class="cta-buttons">
-                        <a href="https://order.kskvasu.co.in" target="_blank" class="btn cta-primary">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" style="margin-right: 8px;">
-                                <path
-                                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
-                                <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
-                                <line x1="12" y1="22.08" x2="12" y2="12" />
-                            </svg>
-                            Book Your Order
-                        </a>
-                        <a href="tel:+919443350464" class="btn cta-secondary">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" style="margin-right: 8px;">
-                                <path
-                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-                            </svg>
-                            Call Us
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </section>
 
-
-
-    <!-- FLOATING STICKY CTA -->
-    <!-- This replaces the jerky manual scroll calculation -->
-    <div id="floating-cta-container">
-        <a href="https://order.kskvasu.co.in" target="_blank" class="floating-btn">
-            Book Your Order ⚡
-        </a>
-    </div>
-
-    <!-- Developer Info Section -->
-    <section class="developer-section">
-        <div class="developer-card">
-            <div class="developer-glow"></div>
-            <h3 class="developer-heading">Developer Info</h3>
-            <div class="developer-content">
-                <div class="developer-avatar">
-                    <img src="images/sqratio.jpeg" alt="Developer">
-                </div>
-                <div class="developer-info">
-                    <h3 class="developer-name">Nithinprabu V</h3>
-                    <p class="developer-role">Full Stack Web Developer</p>
-                </div>
-                <a href="developer.html" target="_blank" class="developer-btn">
-                    <span>View Portfolio</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
-                </a>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1rem; padding: 13px;">
+                        <span style="display: inline-flex; align-items: center; justify-content: center; gap: 8px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg><span>Get Instant Quote on WhatsApp</span></span>
+                    </button>
+                </form>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer>
+    <!-- TEMPLATE 16: PRE-FOOTER CTA BANNER -->
+    <section class="cta-banner-section">
         <div class="container">
-            <div class="footer-content">
-                <h3>KSK VASU & Co.</h3>
-                <p>Building Dreams, Delivering Quality</p>
-                <p class="copyright">© 2026 KSK VASU & Co. All rights reserved.</p>
+            <div class="cta-banner-box">
+                <div class="cta-banner-text">
+                    <h2>Ready to Build Your Dream Project?</h2>
+                    <p>Get premium construction materials delivered to your site. Order now!</p>
+                </div>
+                <div class="cta-banner-actions">
+                    <a href="https://order.kskvasu.co.in" target="_blank" rel="noopener" class="btn btn-orange">
+                        <span>Book Your Order</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    <a href="tel:+919443350464" class="btn btn-outline-white">
+                        <span>Call Us</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEMPLATE 17: DYNAMIC DEVELOPER SHOWCASE CARD -->
+    <section class="developer-section" id="developer-portfolio">
+        <!-- Dynamic Looped Moving Background Layers -->
+        <div class="portfolio-section-bg" aria-hidden="true">
+            <!-- Animated Moving Geometric Grid Pattern -->
+            <div class="portfolio-bg-grid"></div>
+
+            <!-- Moving Aurora Glow Waves -->
+            <div class="portfolio-bg-aurora aurora-1"></div>
+            <div class="portfolio-bg-aurora aurora-2"></div>
+            <div class="portfolio-bg-aurora aurora-3"></div>
+
+            <!-- Animated Looping Scan Lines -->
+            <div class="portfolio-bg-scanline"></div>
+
+            <!-- Floating Background Particle Glyphs -->
+            <div class="portfolio-bg-floating-items">
+                <span class="bg-item bg-item-1">&lt;/&gt;</span>
+                <span class="bg-item bg-item-2">✦</span>
+                <span class="bg-item bg-item-3">{ }</span>
+                <span class="bg-item bg-item-4">⚡</span>
+                <span class="bg-item bg-item-5">◆</span>
+                <span class="bg-item bg-item-6">✦</span>
+            </div>
+        </div>
+
+        <div class="container" style="position: relative; z-index: 2;">
+            <a href="developer.html" class="portfolio-dynamic-card" id="portfolioDynamicCard" aria-label="View Developer Portfolio - Nithinprabu V">
+                <!-- Ambient Looping Glow Aura behind card -->
+                <div class="portfolio-loop-aura" aria-hidden="true"></div>
+
+                <!-- Continuous Looping Animated Gradient Border -->
+                <div class="portfolio-loop-border" aria-hidden="true"></div>
+
+                <!-- Looping Top Laser Beam -->
+                <div class="portfolio-loop-beam" aria-hidden="true"></div>
+
+                <!-- Continuous Looping Surface Shimmer Ray -->
+                <div class="portfolio-loop-shimmer" aria-hidden="true"></div>
+
+                <!-- Clean Card Content -->
+                <div class="portfolio-card-content">
+                    <div class="portfolio-card-left">
+                        <!-- Dynamic Avatar with Looping Rotating Ring -->
+                        <div class="portfolio-avatar-container">
+                            <div class="portfolio-avatar-ring" aria-hidden="true"></div>
+                            <img src="images/sqratio.webp" onerror="this.onerror=null;this.src='images/sqratio.jpeg'" alt="Nithinprabu V" class="portfolio-avatar-img" width="52" height="52" loading="lazy">
+                        </div>
+
+                        <!-- Developer Identity -->
+                        <div class="portfolio-identity">
+                            <span class="portfolio-name">Nithinprabu V</span>
+                            <span class="portfolio-role-badge">Lead Developer</span>
+                        </div>
+                    </div>
+
+                    <!-- Clean Animated Action Arrow -->
+                    <div class="portfolio-card-action">
+                        <span class="portfolio-action-label">Portfolio</span>
+                        <div class="portfolio-action-arrow">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- UNIVERSAL STICKY ORDER BUTTON -->
+    <a href="https://order.kskvasu.co.in" target="_blank" rel="noopener" class="universal-sticky-btn btn-orange" id="universal-sticky-btn" aria-label="Book Your Order Online">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+            <line x1="12" y1="22.08" x2="12" y2="12"/>
+        </svg>
+        <span>Book Your Order</span>
+    </a>
+
+    <!-- TEMPLATE 18: COMPREHENSIVE MODERN LIGHT FOOTER -->
+    <footer>
+        <div class="footer-accent-bar"></div>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="footer-brand-header">
+                        <img src="images/app_icon.webp" alt="KSK VASU & Co." class="footer-brand-logo" width="38" height="38" loading="lazy">
+                        <h3>KSK VASU & Co.</h3>
+                    </div>
+                    <p class="footer-brand-desc">Building Dreams, Delivering Quality. Premier chamber bricks manufacturer, authorized Dalmia cement dealer, and earth moving contractor across Tamil Nadu.</p>
+                    <div class="footer-tamil-badges">
+                        <span class="tamil-blessing-badge">⭐ . . வாழ்க வளமுடன் . . ⭐</span>
+                        <span class="tamil-motto-badge">✦ தரம் எமது தாரக மந்திரம் ✦</span>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="#home">Home</a>
+                        <a href="#services">Services</a>
+                        <a href="#products">Products</a>
+                        <a href="#app">Mobile App</a>
+                        <a href="#about">About</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Products</h4>
+                    <div class="footer-links">
+                        <a href="#products">Cement Bricks (சிமெண்ட் செங்கல்)</a>
+                        <a href="#products">Red Bricks (சேம்பர் செங்கல்)</a>
+                        <a href="#products">Dalmia Cement (டால்மியா சிமெண்ட்)</a>
+                        <a href="#products">M-Sand (கான்கிரீட் மணல்)</a>
+                        <a href="#products">P-Sand (பூச்சு மணல்)</a>
+                        <a href="#products">Jally (ப்ளூ மெட்டல் ஜல்லி)</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Direct Contact</h4>
+                    <div class="footer-contact-list">
+                        <a href="tel:+919443350464" class="footer-contact-card">
+                            <span class="footer-contact-icon">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            </span>
+                            <div class="footer-contact-info">
+                                <span class="footer-contact-lbl">Call Us</span>
+                                <span class="footer-contact-txt">+91 94433 50464</span>
+                            </div>
+                        </a>
+                        <a href="mailto:kskvasu.co@gmail.com" class="footer-contact-card">
+                            <span class="footer-contact-icon">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            </span>
+                            <div class="footer-contact-info">
+                                <span class="footer-contact-lbl">Email</span>
+                                <span class="footer-contact-txt">kskvasu.co@gmail.com</span>
+                            </div>
+                        </a>
+                        <div class="footer-contact-card">
+                            <span class="footer-contact-icon">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            </span>
+                            <div class="footer-contact-info">
+                                <span class="footer-contact-lbl">Availability</span>
+                                <span class="footer-contact-txt">24 Hours × 7 Days</span>
+                            </div>
+                        </div>
+                        <a href="https://play.google.com/store/apps/details?id=com.nuvaminfotech.kskvasushop" target="_blank" rel="noopener" class="footer-play-link">
+                            <svg viewBox="0 0 512 512" width="16" height="16" aria-hidden="true">
+                                <path fill="#00C3FF" d="M32.5 17.5c-4 4.3-6.5 10.7-6.5 18.5v439.9c0 7.8 2.5 14.2 6.5 18.5l237.4-238.4L32.5 17.5z"/>
+                                <path fill="#00E676" d="M348.5 348.5l-78.6-78.6-237.4 238.4c4.6 4.9 12 7.7 20.9 7.7 5.7 0 11.5-1.2 17.1-3.7l278-163.8z"/>
+                                <path fill="#FFD400" d="M479.5 237.7l-78.8-46.4-52.2 52.2 52.2 52.2 79-46.6c11.7-6.9 18.3-17.7 18.3-30.7s-6.6-23.8-18.5-30.7z"/>
+                                <path fill="#FF334B" d="M70.5 8.2C64.9 5.7 59.1 4.5 53.4 4.5c-8.9 0-16.3 2.8-20.9 7.7l237.4 238.4 78.6-78.6-278-163.8z"/>
+                            </svg>
+                            <span>Official Google Play App ↗</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copy">© 2026 KSK VASU & Co. All rights reserved.</p>
             </div>
         </div>
     </footer>
-    <br><br><br><br>
-    <!-- SCRIPTS -->
-    <script src="landing.js"></script>
+
+    
+    <!-- QR Code Lightbox Modal ("Big Pop") -->
+    <div id="qr-modal" class="qr-modal" role="dialog" aria-modal="true" aria-labelledby="qr-modal-title">
+        <div class="qr-modal-backdrop"></div>
+        <div class="qr-modal-card">
+            <button type="button" class="qr-modal-close" id="qr-modal-close" aria-label="Close QR Modal">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <div class="qr-modal-header">
+                <div class="qr-modal-badge">
+                    <svg viewBox="0 0 512 512" width="13" height="13" aria-hidden="true">
+                        <path fill="#00C3FF" d="M32.5 17.5c-4 4.3-6.5 10.7-6.5 18.5v439.9c0 7.8 2.5 14.2 6.5 18.5l237.4-238.4L32.5 17.5z"/>
+                        <path fill="#00E676" d="M348.5 348.5l-78.6-78.6-237.4 238.4c4.6 4.9 12 7.7 20.9 7.7 5.7 0 11.5-1.2 17.1-3.7l278-163.8z"/>
+                        <path fill="#FFD400" d="M479.5 237.7l-78.8-46.4-52.2 52.2 52.2 52.2 79-46.6c11.7-6.9 18.3-17.7 18.3-30.7s-6.6-23.8-18.5-30.7z"/>
+                        <path fill="#FF334B" d="M70.5 8.2C64.9 5.7 59.1 4.5 53.4 4.5c-8.9 0-16.3 2.8-20.9 7.7l237.4 238.4 78.6-78.6-278-163.8z"/>
+                    </svg>
+                    <span>Google Play Store</span>
+                </div>
+                <h3 id="qr-modal-title" class="qr-modal-title">Scan to Install KSK VASU App</h3>
+                <p class="qr-modal-desc">Point your smartphone camera or Google Lens to download directly from Google Play.</p>
+            </div>
+            <div class="qr-modal-body">
+                <div class="qr-modal-image-wrapper">
+                    <img src="images/qr_playstore.png" alt="Scan QR Code to Download KSK VASU App" class="qr-modal-img" width="220" height="220">
+                </div>
+            </div>
+            <div class="qr-modal-footer">
+                <a href="https://play.google.com/store/apps/details?id=com.nuvaminfotech.kskvasushop" target="_blank" rel="noopener" class="qr-modal-link-btn">
+                    <span>Open in Google Play</span>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="landing.js?v=7.6" defer></script>
 </body>
 
 </html>

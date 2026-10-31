@@ -1,0 +1,3 @@
+npx serve public
+
+npx live-server public

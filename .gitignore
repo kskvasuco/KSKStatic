@@ -1,19 +1,68 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Environment and Secrets
+.env
+.env.local
+.env.*.local
+.env.development
+.env.test
+.env.production
+*.pem
+*.key
+
 # Firebase
 .firebase/
 firebase-debug.log
 firebase-debug.*.log
+.runtimeconfig.json
 
-# Node modules
-node_modules/
+# Testing & Browser Automation
+.playwright-mcp/
+test-results/
+playwright-report/
+blob-report/
 
-# Environment files
-.env
-.env.local
+# Agent & AI Runtimes (Local Caches / Temp)
+# Preserves .agents/skills/, .claude/skills/, .cursor/skills/, .codex/skills/,
+# and .21st/ (skills.lock, design.json, DESIGN.md) in version control.
+.agents/scratch/
+.agent/scratch/
+.gemini/
+.21st/cache/
+.21st/tmp/
+.21st/*.tmp
+.21st/*.log
+project-theme.css
 
-# IDE
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# IDE & Editor files
 .vscode/
 .idea/
+*.sublime-workspace
+*.sublime-project
+*.swp
+*.swo
+*~
 
-# OS files
+# Operating System files
 .DS_Store
+.DS_Store?
+._*
 Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Project Backups & Archives
+public/images_backup_orig/
+*.bak
+*.backup
+*.orig

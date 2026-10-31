@@ -1,397 +1,424 @@
 /**
- * KSK VASU & Co - Landing Page Logic
- * Features: Mobile Menu, Sticky Header, Smart Sticky CTA, Scroll Animations, New Year Celebration, Loader
+ * KSK VASU & Co. - Core Interactive Logic
+ * Features: Mobile Menu, Sticky Header, Live Marquee, Smart Sticky CTA,
+ * Product Filter Tabs, FAQ Accordion, Quick Inquiry
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    initScrollReset(); // Force scroll to top on load
-    initLoadingScreen();
+    initScrollReset();
     initMobileMenu();
     initStickyHeader();
     initStickyCTA();
-    initScrollAnimations();
     initMarquee();
-    // initNewYearCelebration(); // Disabled - New Year celebration removed
+    initProductFilters();
+    initFaqAccordion();
+    initInquiryForm();
+    initScrollAnimations();
+    initQrModal();
+    initPortfolioDynamicBanner();
 });
 
 // =========================================
-// -1. SCROLL RESET (Fix Refresh Issue)
+// 1. SCROLL RESET
 // =========================================
 function initScrollReset() {
-    // Prevent browser from restoring scroll position
     if ('scrollRestoration' in history) {
         history.scrollRestoration = 'manual';
     }
-
-    // Force scroll to top
-    window.scrollTo(0, 0);
-
-    // Clear hash from URL without reload
     if (window.location.hash) {
         history.replaceState(null, null, window.location.pathname);
     }
 }
 
 // =========================================
-// 0. LOADING SCREEN
+// 2. MOBILE NAVIGATION DRAWER
 // =========================================
-function initLoadingScreen() {
-    window.addEventListener('load', function () {
-        const loadingScreen = document.getElementById('loading-screen');
-        if (loadingScreen) {
-            // Minimum 1.5s display for animation to complete
-            setTimeout(() => {
-                loadingScreen.classList.add('hidden');
-                // Remove from DOM after transition
-                setTimeout(() => {
-                    loadingScreen.remove();
-                }, 500);
-            }, 1500);
+function initMobileMenu() {
+    const toggle = document.querySelector('.mobile-toggle');
+    const drawer = document.getElementById('mobile-nav-drawer');
+    const backdrop = document.getElementById('mobile-nav-backdrop');
+    const closeBtn = document.querySelector('.drawer-close-btn');
+    const body = document.body;
+
+    if (!toggle || !drawer || !backdrop) return;
+
+    function openMenu() {
+        drawer.classList.add('active');
+        backdrop.classList.add('active');
+        body.style.overflow = 'hidden';
+        toggle.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeMenu() {
+        drawer.classList.remove('active');
+        backdrop.classList.remove('active');
+        body.style.overflow = '';
+        toggle.setAttribute('aria-expanded', 'false');
+    }
+
+    toggle.addEventListener('click', () => {
+        if (drawer.classList.contains('active')) closeMenu();
+        else openMenu();
+    });
+
+    if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+    backdrop.addEventListener('click', closeMenu);
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && drawer.classList.contains('active')) {
+            closeMenu();
+        }
+    });
+
+    drawer.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', (e) => {
+            const targetId = link.getAttribute('href');
+            closeMenu();
+            if (targetId && targetId !== '#') {
+                const targetEl = document.querySelector(targetId);
+                if (targetEl) {
+                    e.preventDefault();
+                    setTimeout(() => {
+                        const header = document.querySelector('.header');
+                        const headerH = header ? header.offsetHeight : 97;
+                        const targetRect = targetEl.getBoundingClientRect();
+                        const targetTop = targetRect.top + window.scrollY - headerH - 6;
+                        window.scrollTo({
+                            top: Math.max(0, targetTop),
+                            behavior: 'smooth'
+                        });
+                    }, 120);
+                }
+            }
+        });
+    });
+
+    drawer.querySelectorAll('a:not([href^="#"])').forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 992 && drawer.classList.contains('active')) {
+            closeMenu();
         }
     });
 }
 
 // =========================================
-// 1. MOBILE MENU TOGGLE
-// =========================================
-function initMobileMenu() {
-    const toggle = document.querySelector('.mobile-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    const body = document.body;
-
-    // Create backdrop
-    const backdrop = document.createElement('div');
-    backdrop.className = 'menu-backdrop';
-    body.appendChild(backdrop);
-
-    if (!toggle || !navLinks) return;
-
-    function toggleMenu() {
-        navLinks.classList.toggle('active');
-        backdrop.classList.toggle('active');
-        // Prevent background scrolling when menu is open
-        body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
-        // Toggle hamburger to X icon
-        toggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
-    }
-
-    toggle.addEventListener('click', toggleMenu);
-    backdrop.addEventListener('click', toggleMenu);
-
-    // Close menu when clicking a link
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            if (navLinks.classList.contains('active')) toggleMenu();
-        });
-    });
-}
-
-// =========================================
-// 2. STICKY HEADER EFFECT
+// 3. STICKY HEADER
 // =========================================
 function initStickyHeader() {
     const header = document.querySelector('.header');
+    if (!header) return;
 
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
+        if (window.scrollY > 40) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
-    });
+    }, { passive: true });
 }
 
 // =========================================
-// 3. SMART STICKY CTA (Triggers when hero button reaches marquee)
+// 4. SMART STICKY CTA BUTTON
 // =========================================
 function initStickyCTA() {
     const heroCTA = document.getElementById('hero-cta');
-    const marquee = document.querySelector('.marquee-container');
-    const floatingCTA = document.getElementById('floating-cta-container');
+    const stickyBtn = document.getElementById('universal-sticky-btn');
+    if (!stickyBtn) return;
 
-    if (!heroCTA) return;
-
-    // Hide the old floating CTA if exists
-    if (floatingCTA) {
-        floatingCTA.style.display = 'none';
-    }
-
-    // Create the universal sticky bottom button
-    const stickyBtn = document.createElement('a');
-    stickyBtn.href = 'https://order.kskvasu.co.in';
-    stickyBtn.target = '_blank';
-    stickyBtn.className = 'btn universal-sticky-btn';
-    stickyBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>Book Your Order';
-    document.body.appendChild(stickyBtn);
-
-    let ticking = false;
-
-    function updateButtonVisibility() {
-        const heroRect = heroCTA.getBoundingClientRect();
-        const marqueeRect = marquee ? marquee.getBoundingClientRect() : null;
-
-        // Trigger when hero button's bottom reaches the marquee's top (or passes it)
-        // If no marquee, fallback to checking if hero button is scrolled past viewport
-        let shouldShowSticky = false;
-
-        if (marqueeRect) {
-            // Hero button reaches the marquee when button's top goes above marquee's bottom
-            shouldShowSticky = heroRect.top <= marqueeRect.bottom;
-        } else {
-            // Fallback: show when hero button is scrolled out of view
-            shouldShowSticky = heroRect.bottom < 0;
-        }
-
-        if (shouldShowSticky) {
-            heroCTA.style.opacity = '0';
-            heroCTA.style.pointerEvents = 'none';
-            stickyBtn.classList.add('visible');
-        } else {
-            heroCTA.style.opacity = '1';
-            heroCTA.style.pointerEvents = 'auto';
-            stickyBtn.classList.remove('visible');
-        }
-
-        ticking = false;
-    }
-
-    function onScroll() {
-        if (!ticking) {
-            window.requestAnimationFrame(updateButtonVisibility);
-            ticking = true;
-        }
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-
-    // Initial check
-    updateButtonVisibility();
-}
-
-// =========================================
-// 4. SCROLL ANIMATIONS (Fade In)
-// =========================================
-function initScrollAnimations() {
-    const fadeElems = document.querySelectorAll('.feature-card, .product-card, .about-content, .contact-card, .developer-card');
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-                observer.unobserve(entry.target); // Only animate once
+    function checkVisibility() {
+        if (heroCTA) {
+            const rect = heroCTA.getBoundingClientRect();
+            if (rect.bottom < 100) {
+                stickyBtn.classList.add('visible');
+            } else {
+                stickyBtn.classList.remove('visible');
             }
-        });
-    }, {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px"
-    });
+        } else {
+            if (window.scrollY > 450) {
+                stickyBtn.classList.add('visible');
+            } else {
+                stickyBtn.classList.remove('visible');
+            }
+        }
+    }
 
-    fadeElems.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-        observer.observe(el);
-    });
+    window.addEventListener('scroll', checkVisibility, { passive: true });
+    checkVisibility();
 }
 
 // =========================================
-// 5. MARQUEE LOGIC (Enhanced JavaScript Animation)
+// 5. LIVE MARQUEE ANIMATION
 // =========================================
 function initMarquee() {
     const marqueeContainer = document.querySelector('.marquee-container');
-    const marqueeContent = document.querySelector('.marquee-content');
     const marqueeText = document.querySelector('.marquee-text');
     const header = document.querySelector('.header');
 
     if (!marqueeContainer || !marqueeText || !header) return;
 
-    // Remove CSS animation - we'll handle it with JavaScript
-    marqueeText.style.animation = 'none';
-
-    // Configuration
-    const config = {
-        speed: 1.5, // Pixels per frame (adjustable for desired speed)
-        pauseOnHover: true,
-        smoothness: true // Use requestAnimationFrame for smooth scrolling
-    };
-
     let position = 0;
     let isPaused = false;
     let animationId = null;
+    const speed = 1.2;
 
-    // Get the width of a single text span for seamless looping
     function getContentWidth() {
         const spans = marqueeText.querySelectorAll('span');
-        if (spans.length > 0) {
-            return spans[0].offsetWidth;
-        }
-        return marqueeText.scrollWidth / 2;
+        return spans.length > 0 ? spans[0].offsetWidth : marqueeText.scrollWidth / 2;
     }
 
-    // Track last known header height for smooth transitions
-    let lastHeaderHeight = header.offsetHeight;
-
-    // Update marquee position below header
-    function updateMarqueePosition() {
-        const headerHeight = header.offsetHeight;
-        if (headerHeight !== lastHeaderHeight) {
-            lastHeaderHeight = headerHeight;
-            marqueeContainer.style.top = headerHeight + 'px';
-        }
-    }
-
-    // Smooth animation loop using requestAnimationFrame
     function animate() {
-        // Update header position every frame for smooth tracking during fast scroll
-        updateMarqueePosition();
-
         if (!isPaused) {
-            position -= config.speed;
-
+            position -= speed;
             const contentWidth = getContentWidth();
-
-            // Reset position when first span is completely scrolled out
             if (Math.abs(position) >= contentWidth) {
                 position = 0;
             }
-
             marqueeText.style.transform = `translateX(${position}px)`;
         }
-
         animationId = requestAnimationFrame(animate);
     }
 
-    // Start animation
-    function startAnimation() {
-        if (!animationId) {
+    marqueeContainer.addEventListener('mouseenter', () => { isPaused = true; });
+    marqueeContainer.addEventListener('mouseleave', () => { isPaused = false; });
+    marqueeContainer.addEventListener('touchstart', () => { isPaused = true; }, { passive: true });
+    marqueeContainer.addEventListener('touchend', () => { isPaused = false; }, { passive: true });
+
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            if (animationId) cancelAnimationFrame(animationId);
+        } else {
             animationId = requestAnimationFrame(animate);
         }
-    }
+    });
 
-    // Stop animation
-    function stopAnimation() {
-        if (animationId) {
-            cancelAnimationFrame(animationId);
-            animationId = null;
-        }
-    }
-
-    // Pause on hover
-    if (config.pauseOnHover) {
-        marqueeContainer.addEventListener('mouseenter', () => {
-            isPaused = true;
-        });
-
-        marqueeContainer.addEventListener('mouseleave', () => {
-            isPaused = false;
-        });
-
-        // Touch support for mobile
-        marqueeContainer.addEventListener('touchstart', () => {
-            isPaused = true;
-        }, { passive: true });
-
-        marqueeContainer.addEventListener('touchend', () => {
-            isPaused = false;
-        }, { passive: true });
-    }
-
-    // Visibility-based performance optimization
-    function handleVisibilityChange() {
-        if (document.hidden) {
-            stopAnimation();
-        } else {
-            startAnimation();
-        }
-    }
-
-    // Event listeners
-    window.addEventListener('resize', updateMarqueePosition);
-    document.addEventListener('visibilitychange', handleVisibilityChange);
-
-    // Initialize position immediately
-    marqueeContainer.style.top = header.offsetHeight + 'px';
-
-    // Initialize animation
-    startAnimation();
+    animationId = requestAnimationFrame(animate);
 }
 
 // =========================================
-// 6. NEW YEAR CELEBRATION
+// 6. PRODUCT FILTER TABS
 // =========================================
-function initNewYearCelebration() {
-    const now = new Date();
-    // Month is 0-indexed (0 = Jan), Date is 1-31
-    const isNewYear = (now.getMonth() === 0 && now.getDate() >= 1 && now.getDate() <= 7);
+function initProductFilters() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const productCards = document.querySelectorAll('.product-card');
 
-    if (!isNewYear) {
-        console.log('Not New Year period');
-        // Ensure marquee is visible if it was hidden by default
-        return;
-    }
+    if (!filterBtns.length || !productCards.length) return;
 
-    console.log('🎉 Happy New Year Week!');
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
 
-    const overlay = document.getElementById('newyear-overlay');
-    const confettiContainer = document.getElementById('confetti-container');
-    const marquee = document.querySelector('.marquee-container');
-    const newYearBanner = document.getElementById('newyear-banner');
-    const header = document.querySelector('.header');
+            const filterValue = btn.getAttribute('data-filter');
 
-    if (overlay) overlay.classList.remove('newyear-hidden');
+            productCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                if (filterValue === 'all' || category === filterValue) {
+                    card.style.display = 'flex';
+                    card.style.opacity = '1';
+                    card.style.transform = 'scale(1)';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
 
-    // Hide regular marquee, show new year banner
-    if (marquee) marquee.style.display = 'none';
-
-    function positionBanner() {
-        if (newYearBanner && header) {
-            newYearBanner.style.top = header.offsetHeight + 'px';
-        }
-    }
-
-    positionBanner();
-    window.addEventListener('resize', positionBanner);
-    window.addEventListener('scroll', positionBanner);
-
-    if (confettiContainer) {
-        createConfetti(confettiContainer);
-        // Regenerate confetti periodically
-        setInterval(() => {
-            createConfetti(confettiContainer);
-        }, 5000);
-    }
+            // If user has scrolled down into products, ensure filter bar & top card stay visible
+            const filterBar = document.querySelector('.product-filter-bar');
+            if (filterBar) {
+                const filterRect = filterBar.getBoundingClientRect();
+                const header = document.querySelector('.header');
+                const headerH = header ? header.offsetHeight : 97;
+                if (filterRect.top < headerH) {
+                    window.scrollTo({
+                        top: window.scrollY + filterRect.top - headerH - 8,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
 }
 
-function createConfetti(container) {
-    if (!container) return;
+// =========================================
+// 7. FAQ ACCORDION
+// =========================================
+function initFaqAccordion() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    if (!faqItems.length) return;
 
-    const colors = ['#ffd700', '#c0c0c0', '#ffed4e', '#ff6b6b', '#4ecdc4', '#95e1d3'];
-    const confettiCount = 50;
+    faqItems.forEach(item => {
+        const questionBtn = item.querySelector('.faq-question');
+        if (!questionBtn) return;
 
-    for (let i = 0; i < confettiCount; i++) {
-        const confetti = document.createElement('div');
-        confetti.classList.add('confetti-piece');
+        questionBtn.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            
+            // Close other items
+            faqItems.forEach(other => other.classList.remove('active'));
 
-        // Random properties
-        const color = colors[Math.floor(Math.random() * colors.length)];
-        const left = Math.random() * 100;
-        const animationDuration = (Math.random() * 3 + 2); // 2-5 seconds
-        const delay = Math.random() * 2;
-        const size = Math.random() * 6 + 4; // 4-10px
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+}
 
-        confetti.style.left = `${left}%`;
-        confetti.style.background = color;
-        confetti.style.width = `${size}px`;
-        confetti.style.height = `${size}px`;
-        confetti.style.animationDuration = `${animationDuration}s`;
-        confetti.style.animationDelay = `${delay}s`;
+// =========================================
+// 9. QUICK INQUIRY FORM
+// =========================================
+function initInquiryForm() {
+    const form = document.getElementById('quick-inquiry-form');
+    if (!form) return;
 
-        container.appendChild(confetti);
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('inquiry-name').value.trim();
+        const phone = document.getElementById('inquiry-phone').value.trim();
+        const material = document.getElementById('inquiry-material').value;
+        const location = document.getElementById('inquiry-location').value.trim();
 
-        // Remove confetti after animation
-        setTimeout(() => {
-            confetti.remove();
-        }, (animationDuration + delay) * 1000);
+        if (!name || !phone) {
+            alert('Please provide your name and contact phone number.');
+            return;
+        }
+
+        const message = `Hello KSK VASU & Co., I am ${encodeURIComponent(name)} from ${encodeURIComponent(location || 'Tamil Nadu')}. I need a quote for: ${encodeURIComponent(material)}. Contact: ${encodeURIComponent(phone)}.`;
+        
+        // Open WhatsApp directly with prefilled order request
+        const whatsappUrl = `https://wa.me/919443350464?text=${message}`;
+        window.open(whatsappUrl, '_blank');
+    });
+}
+
+// =========================================
+// 10. SCROLL ANIMATIONS (INTERSECTION OBSERVER)
+// =========================================
+function initScrollAnimations() {
+    const cards = document.querySelectorAll(
+        '.service-card, .product-card, .metric-card, .why-card, .step-card, ' +
+        '.testimonial-card, .contact-card, .faq-item, .developer-card'
+    );
+
+    if (!('IntersectionObserver' in window)) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                const delay = parseFloat(el.dataset.delay || '0');
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0) scale(1)';
+                }, delay);
+                observer.unobserve(el);
+            }
+        });
+    }, {
+        threshold: 0.08,
+        rootMargin: '0px 0px -30px 0px'
+    });
+
+    cards.forEach((el, idx) => {
+        // Stagger delay within same parent grid: 0, 80, 160, 240ms
+        const siblings = el.parentElement ? [...el.parentElement.children] : [el];
+        const posInGroup = siblings.indexOf(el);
+        el.dataset.delay = String(Math.min(posInGroup * 80, 320));
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(28px) scale(0.98)';
+        el.style.transition = 'opacity 0.55s ease-out, transform 0.55s cubic-bezier(0.16, 1, 0.3, 1)';
+        observer.observe(el);
+    });
+}
+
+// =========================================
+// 11. QR CODE LIGHTBOX MODAL ("BIG POP")
+// =========================================
+function initQrModal() {
+    const trigger = document.getElementById('qr-trigger');
+    const modal = document.getElementById('qr-modal');
+    if (!trigger || !modal) return;
+
+    const backdrop = modal.querySelector('.qr-modal-backdrop');
+    const closeBtn = document.getElementById('qr-modal-close') || modal.querySelector('.qr-modal-close');
+
+    function openModal() {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        if (closeBtn) closeBtn.focus();
     }
+
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+        trigger.focus();
+    }
+
+    trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal();
+    });
+
+    trigger.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openModal();
+        }
+    });
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+    }
+
+    if (backdrop) {
+        backdrop.addEventListener('click', closeModal);
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+}
+
+// =========================================
+// 11. DYNAMIC PORTFOLIO BANNER EFFECTS
+// =========================================
+function initPortfolioDynamicBanner() {
+    const card = document.getElementById('portfolioDynamicCard');
+    if (!card) return;
+
+    // Check if touch device or prefers-reduced-motion
+    const isTouch = window.matchMedia('(hover: none)').matches;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (isTouch || prefersReducedMotion) return;
+
+    let rafId = null;
+
+    card.addEventListener('mousemove', (e) => {
+        if (rafId) cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(() => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            // Set mouse position for dynamic flashlight spotlight
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+
+            // Subtle 3D tilt calculation (-3.5deg to +3.5deg)
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = ((y - centerY) / centerY) * -3.2;
+            const rotateY = ((x - centerX) / centerX) * 3.2;
+
+            card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-2px)`;
+        });
+    });
+
+    card.addEventListener('mouseleave', () => {
+        if (rafId) cancelAnimationFrame(rafId);
+        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
+    });
 }

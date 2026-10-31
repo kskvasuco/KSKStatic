@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Inter:wght@400;500;600;700;800&display=swap');
+
+
 
 /* ===== CSS VARIABLES - PROFESSIONAL COLOR SYSTEM ===== */
 :root {
@@ -162,7 +164,7 @@
 
 /* ===== GLOBAL STYLES ===== */
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: 'Open Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     line-height: 1.7;
     color: var(--text-dark);
     background: var(--gray-50);
@@ -686,14 +688,36 @@ body,
 }
 
 .service-card {
-    background: white;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
     padding: 2.5rem;
-    border-radius: 20px;
-    box-shadow: var(--shadow-lg);
-    transition: all var(--transition-base);
-    border: 1px solid var(--gray-100);
+    border-radius: 24px;
+    box-shadow: 0 15px 35px -5px rgba(0, 40, 80, 0.15), inset 0 1.5px 1.5px 0 rgba(255, 255, 255, 0.9), inset 0 -1px 2px 0 rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     overflow: hidden;
+}
+
+.service-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 60%;
+    height: 200%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+    transform: rotate(25deg);
+    transition: all 0.75s ease-in-out;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.service-card:hover::after {
+    left: 140%;
+    opacity: 1;
 }
 
 .service-card::before {
@@ -713,9 +737,10 @@ body,
 }
 
 .service-card:hover {
-    transform: translateY(-12px);
-    box-shadow: var(--shadow-2xl);
-    border-color: var(--primary-blue-light);
+    transform: translateY(-12px) scale(1.02);
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 25px 50px -10px rgba(0, 134, 212, 0.35), inset 0 2px 2px 0 rgba(255, 255, 255, 1);
+    border-color: rgba(0, 134, 212, 0.6);
 }
 
 .service-icon {
