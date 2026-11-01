@@ -4783,7 +4783,8 @@ footer .container {
     margin-top: auto !important;
 }
 
-.product-actions .btn-primary {
+.product-actions .btn-primary,
+.product-actions .btn-orange {
     flex: 1 1 auto !important;
     padding: 11px 18px !important;
     font-size: 0.9rem !important;

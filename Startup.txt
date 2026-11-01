@@ -1,3 +1,8 @@
-npx serve public
+# Run on dedicated port 5000 (Prevents port 3000 collision with other React projects / open tabs):
+npx serve public -l 5000
 
-npx live-server public
+# Or using live-server:
+npx live-server public --port=5000
+
+# Standard port 3000:
+npx serve public

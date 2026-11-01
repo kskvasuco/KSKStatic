@@ -1,0 +1,23 @@
+{
+  "rewrites": [
+    { "source": "/api/alerts", "destination": "/api/alerts.json" },
+    { "source": "/api/alerts/stats", "destination": "/api/alerts-stats.json" },
+    { "source": "!", "destination": "/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/api/**",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    }
+  ]
+}
+
