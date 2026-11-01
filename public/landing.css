@@ -4591,6 +4591,15 @@ footer .container {
     margin-bottom: 0 !important;
 }
 
+.service-heading-text {
+    flex: 1 !important;
+    min-width: 0 !important;
+    min-height: 52px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+}
+
 .service-title {
     font-size: 1.22rem !important;
     font-weight: 700 !important;
@@ -4612,6 +4621,7 @@ footer .container {
     color: #475569 !important;
     line-height: 1.55 !important;
     margin-bottom: 14px !important;
+    min-height: 46px !important;
 }
 
 .service-feature-list {
@@ -4886,6 +4896,14 @@ footer .container {
     .service-card {
         padding: 18px 16px !important;
         border-radius: 14px !important;
+    }
+
+    .service-heading-text {
+        min-height: auto !important;
+    }
+
+    .service-desc {
+        min-height: auto !important;
     }
 
     .product-card {
